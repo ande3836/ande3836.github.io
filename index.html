@@ -1,10 +1,11 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Andrew Delavara | Mechanical Engineering Portfolio</title>
+  <title>Andrew De La Vara | Mechanical Engineering Portfolio</title>
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -19,32 +20,35 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <!-- custom style CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- VISIBILITY FAILSAFE:
+       Many templates hide [data-aos] elements via CSS until AOS JS initializes.
+       If AOS JS is missing, content can appear "blank".
+       This ensures content is visible even if AOS fails to initialize. -->
+  <style>
+    html { scroll-behavior: smooth; }
+    [data-aos] { opacity: 1 !important; transform: none !important; }
+
+    /* If your template relies on overlay visibility classes and script.js is missing,
+       this provides a minimal functional fullscreen menu behavior. */
+    .fullscreen-menu-overlay { display: none; }
+    .fullscreen-menu-overlay.is-open { display: block; }
+  </style>
 </head>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-<script>
-  AOS.init({
-    once: true,
-    duration: 800,
-    offset: 120
-  });
-</script>
-
-  
 <body>
 
-  <!-- SVG icon symbols (kept as-is from template) -->
-  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-    <symbol xmlns="http://www.w3.org/2000/svg" id="instagram" viewBox="0 0 15 15">
+  <!-- SVG icon symbols (kept from template; safe even if unused) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
+    <symbol id="instagram" viewBox="0 0 15 15">
       <path fill="none" stroke="currentColor"
         d="M11 3.5h1M4.5.5h6a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4h-6a4 4 0 0 1-4-4v-6a4 4 0 0 1 4-4Zm3 10a3 3 0 1 1 0-6a3 3 0 0 1 0 6Z" />
     </symbol>
-    <symbol xmlns="http://www.w3.org/2000/svg" id="facebook" viewBox="0 0 15 15">
+    <symbol id="facebook" viewBox="0 0 15 15">
       <path fill="none" stroke="currentColor"
         d="M7.5 14.5a7 7 0 1 1 0-14a7 7 0 0 1 0 14Zm0 0v-8a2 2 0 0 1 2-2h.5m-5 4h5" />
     </symbol>
-    <symbol xmlns="http://www.w3.org/2000/svg" id="twitter" viewBox="0 0 15 15">
+    <symbol id="twitter" viewBox="0 0 15 15">
       <path fill="currentColor"
         d="m14.478 1.5l.5-.033a.5.5 0 0 0-.871-.301l.371.334Zm-.498 2.959a.5.5 0 1 0-1 0h1Zm-6.49.082h-.5h.5Zm0 .959h.5h-.5Zm-6.99 7V12a.5.5 0 0 0-.278.916L.5 12.5Zm.998-11l.469-.175a.5.5 0 0 0-.916-.048l.447.223Zm3.994 9l.354.353a.5.5 0 0 0-.195-.827l-.159.474Zm7.224-8.027l-.37.336l.18.199l.265-.04l-.075-.495Zm1.264-.94c.051.778.003 1.25-.123 1.606c-.122.345-.336.629-.723 1l.692.722c.438-.42.776-.832.974-1.388c.193-.546.232-1.178.177-2.006l-.998.066Zm0 3.654V4.46h-1v.728h1Zm-6.99-.646V5.5h1v-.959h-1Zm0 .959V6h1v-.5h-1ZM10.525 1a3.539 3.539 0 0 0-3.537 3.541h1A2.539 2.539 0 0 1 10.526 2V1Zm2.454 4.187C12.98 9.503 9.487 13 5.18 13v1c4.86 0 8.8-3.946 8.8-8.813h-1ZM1.03 1.675C1.574 3.127 3.614 6 7.49 6V5C4.174 5 2.421 2.54 1.966 1.325l-.937.35Zm.021-.398C.004 3.373-.157 5.407.604 7.139c.759 1.727 2.392 3.055 4.73 3.835l.317-.948c-2.155-.72-3.518-1.892-4.132-3.29c-.612-1.393-.523-3.11.427-5.013l-.895-.446Zm4.087 8.87C4.536 10.75 2.726 12 .5 12v1c2.566 0 4.617-1.416 5.346-2.147l-.708-.706Zm7.949-8.009A3.445 3.445 0 0 0 10.526 1v1c.721 0 1.37.311 1.82.809l.74-.671Zm-.296.83a3.513 3.513 0 0 0 2.06-1.134l-.744-.668a2.514 2.514 0 0 1-1.466.813l.15.989ZM.222 12.916C1.863 14.01 3.583 14 5.18 14v-1c-1.63 0-3.048-.011-4.402-.916l-.556.832Z" />
     </symbol>
@@ -54,7 +58,7 @@
   <div id="fullscreenMenu" class="fullscreen-menu-overlay">
     <div class="container h-100">
       <div class="row h-100 align-items-center">
-        <div class="col-lg-7">
+        <div class="col-lg-7 position-relative">
           <button id="closeMenuBtn" class="close-menu-btn position-absolute top-0 end-0 m-4">
             <i class="fas fa-times fs-1"></i>
           </button>
@@ -73,21 +77,24 @@
           </nav>
 
           <div class="menu-social-links mt-5">
-            <!-- Replace # with your real links when ready -->
-            <a href="#" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://linkedin.com/in/andrewdelavara" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <!-- Add your GitHub profile link here when ready -->
+            <a href="#" class="social-link" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
           </div>
         </div>
 
         <div class="col-lg-5 text-white py-3">
           <p class="fs-3 mb-3">
-            Mechanical Engineering portfolio focused on design-to-build execution: CAD, prototyping, testing, and
-            iterative improvement.
+            Mechanical Engineering portfolio focused on design-to-build execution: CAD, prototyping, testing, and iteration.
           </p>
           <p class="mb-4">
-            Based in Colorado (open to relocation) <br>
-            Email: <span class="text-warning">your.email@domain.com</span> <br>
-            GitHub Pages: <span class="text-warning">ande3836.github.io</span>
+            Grand Junction, CO <br>
+            Andrewdelavara571@gmail.com <br>
+            ande3836.github.io
           </p>
           <a href="#contact" class="btn btn-outline-warning rounded-pill">Contact</a>
         </div>
@@ -101,11 +108,11 @@
 
       <nav class="d-flex justify-content-between">
         <div class="text-light-custom content-title fw-bold" data-aos="fade-right" data-aos-duration="1000">
-          Andrew Delavara
+          Andrew De La Vara
         </div>
 
-        <button class="menu-toggle-btn btn d-flex align-items-center gap-2" data-aos="fade-left"
-          data-aos-duration="1000">
+        <button id="menuOpenBtn" class="menu-toggle-btn btn d-flex align-items-center gap-2" data-aos="fade-left"
+          data-aos-duration="1000" type="button">
           <span class="text-light-custom fw-bold">MENU</span>
           <i class="fas fa-bars text-light-custom"></i>
         </button>
@@ -113,7 +120,7 @@
 
       <div class="w-100 text-center overflow-hidden">
         <div class="syne-font hero-title text-yellow" data-aos="fade-up">ANDREW</div>
-        <div class="syne-font hero-title hero-bg-text" data-aos="fade-up" data-aos-delay="200">DELAVARA</div>
+        <div class="syne-font hero-title hero-bg-text" data-aos="fade-up" data-aos-delay="200">DE LA VARA</div>
         <div class="syne-font hero-title hero-bg-text" data-aos="fade-up" data-aos-delay="400">MECHANICAL</div>
         <div class="syne-font hero-title hero-bg-text" data-aos="fade-up" data-aos-delay="600">ENGINEERING</div>
       </div>
@@ -127,8 +134,8 @@
                   Mechanical Engineering Undergraduate
                 </div>
                 <p class="text-light-custom mb-4" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
-                  I build practical engineering solutions by combining CAD-driven design, prototyping, and test-based
-                  iteration. This site highlights projects, SolidWorks work, and a resume summary (PDF coming soon).
+                  I build practical engineering solutions by combining CAD-driven design, prototyping, and test-based iteration.
+                  This site highlights projects, SolidWorks work, and a resume overview (PDF can be added later).
                 </p>
                 <div class="d-flex flex-wrap gap-3" data-aos="fade-right" data-aos-delay="400" data-aos-duration="1000">
                   <a href="#projects" class="btn btn-custom d-flex align-items-center gap-2">
@@ -136,42 +143,39 @@
                     <i class="fas fa-arrow-right"></i>
                   </a>
                   <a href="#resume" class="btn btn-outline-warning rounded-pill">
-                    Resume Overview
+                    Resume
                   </a>
                 </div>
               </div>
             </div>
 
             <div class="col-md-6">
-              <div data-aos="text-reveal-up" data-aos-delay="1000"
+              <div data-aos="text-reveal-up" data-aos-delay="600"
                 class="text-animation m-0 bg-primary-subtle p-4 p-lg-5 rounded-3">
                 <div class="swiper servicesSwiper">
                   <div class="swiper-wrapper">
-
                     <div class="swiper-slide">
                       <div class="text-light-custom content-title fw-bold">CAD & Mechanical Design</div>
                       <p class="text-light-custom mb-4">
-                        Parametric modeling, design intent, manufacturability considerations, and clear drawing-driven
-                        communication.
+                        Solid modeling, assembly structure, and design intent to support iteration and manufacturability.
                       </p>
                     </div>
 
                     <div class="swiper-slide">
                       <div class="text-light-custom content-title fw-bold">Prototyping & Testing</div>
                       <p class="text-light-custom mb-4">
-                        Rapid prototyping, measurement-focused testing, and iteration based on data and constraints.
+                        Hands-on builds and measurement-based testing to validate performance and improve designs.
                       </p>
                     </div>
 
                     <div class="swiper-slide">
-                      <div class="text-light-custom content-title fw-bold">Controls & Technical Computing</div>
+                      <div class="text-light-custom content-title fw-bold">Technical Computing</div>
                       <p class="text-light-custom mb-4">
-                        MATLAB-based analysis and (when applicable) microcontroller programming to support mechatronics
-                        and experimental workflows.
+                        MATLAB-supported analysis and documentation to communicate results clearly and efficiently.
                       </p>
                     </div>
-
                   </div>
+
                   <div class="swiper-pagination text-start"></div>
                 </div>
               </div>
@@ -180,6 +184,7 @@
           </div>
         </div>
       </div>
+
     </div>
   </header>
 
@@ -189,27 +194,26 @@
       <div class="row g-lg-5 align-items-center">
 
         <!-- No image calls yet: placeholder block -->
-        <div class="banner-image col-md-6" data-aos="clip-bottom" data-aos-duration="1000">
-          <div class="bg-light-alt rounded-4 p-5 d-flex align-items-center justify-content-center" style="min-height: 380px;">
+        <div class="col-md-6" data-aos="clip-bottom" data-aos-duration="1000">
+          <div class="bg-light-alt rounded-4 p-5 d-flex align-items-center justify-content-center" style="min-height: 360px;">
             <div class="text-center">
               <div class="content-title fw-bold mb-2">Headshot Placeholder</div>
-              <div class="text-muted">Add your portrait image later (no image files required right now).</div>
+              <div class="text-muted">Add your portrait image later.</div>
             </div>
           </div>
         </div>
 
-        <div class="col-md-6" data-aos="clip-top" data-aos-delay="1000">
+        <div class="col-md-6" data-aos="clip-top" data-aos-delay="200">
           <div class="content-title mb-4 fw-bold">About</div>
           <blockquote class="fst-italic fs-4 mb-4">
-            "I focus on executing the full engineering workflow: define, design, build, test, and improve."
+            "I focus on the full engineering workflow: define, design, build, test, and improve."
           </blockquote>
           <p class="mb-4">
-            I am a Mechanical Engineering undergraduate with a focus on hands-on design and development. I enjoy projects
-            where I can translate requirements into CAD, build prototypes, test performance, and iterate quickly.
+            I am a Mechanical Engineering undergraduate at the University of Colorado Boulder (expected May 2027).
+            I enjoy projects that combine CAD-driven design, hands-on prototyping, and testing to validate and improve performance.
           </p>
           <p class="mb-5">
-            Current focus areas include mechanical design, rapid prototyping, experimental testing, and engineering
-            communication through clear documentation and results.
+            I am currently building a strong foundation across design, manufacturing awareness, and engineering communication.
           </p>
           <a href="#projects" class="btn btn-custom d-flex align-items-center gap-2">
             <span>See Projects</span>
@@ -232,23 +236,31 @@
 
       <div class="row">
         <div class="col-md-6 py-5">
-          <div class="bg-light-alt p-5 mt-5 rounded-4 overflow-hidden" data-aos="clip-top" data-aos-delay="1000">
-            <div class="content-title mb-4 fw-bold">Relevant Work</div>
+          <div class="bg-light-alt p-5 mt-5 rounded-4 overflow-hidden" data-aos="clip-top" data-aos-delay="300">
+            <div class="content-title mb-4 fw-bold">Work & Leadership</div>
 
             <div class="mb-5">
-              <div class="date-text mb-2">YYYY - YYYY</div>
-              <h3 class="subtitle mb-2">Role Title — Company / Team</h3>
+              <div class="date-text mb-2">Jul 2025 – Present</div>
+              <h3 class="subtitle mb-2">Field Technician — Ridgeview Data Collection</h3>
               <p class="mb-0">
-                Replace this with 2–4 bullet-style sentences: responsibilities, tools used (SolidWorks, MATLAB, etc.),
-                and measurable outcomes.
+                Collect and document field data with accuracy and consistency. Support team operations through reliable execution
+                and clear communication.
+              </p>
+            </div>
+
+            <div class="mb-5">
+              <div class="date-text mb-2">May 2022 – Jun 2024</div>
+              <h3 class="subtitle mb-2">Shift Manager — Nellas Frozen Yogurts</h3>
+              <p class="mb-0">
+                Managed daily operations and customer service while maintaining quality and efficiency under time constraints.
               </p>
             </div>
 
             <div>
-              <div class="date-text mb-2">YYYY - YYYY</div>
-              <h3 class="subtitle mb-2">Role Title — Project / Organization</h3>
+              <div class="date-text mb-2">Jan 2025 – Present</div>
+              <h3 class="subtitle mb-2">Vice President — Basic Life Support Club</h3>
               <p class="mb-0">
-                Add a short, results-focused description. Emphasize design-to-build execution, testing, and iteration.
+                Support organization leadership and member engagement. Coordinate club objectives and assist with planning.
               </p>
             </div>
 
@@ -272,24 +284,22 @@
         <div class="col-md-6"></div>
 
         <div class="col-md-6 py-5">
-          <div class="bg-light-alt p-5 rounded-4" data-aos="clip-bottom" data-aos-duration="1000">
+          <div class="bg-light-alt p-5 rounded-4" data-aos="clip-bottom" data-aos-delay="200">
             <div class="content-title mb-4 fw-bold">Academic Background</div>
 
             <div class="mb-5">
-              <div class="date-text mb-2">Expected Graduation: YYYY</div>
-              <h3 class="subtitle mb-2">B.S. Mechanical Engineering — University</h3>
+              <div class="date-text mb-2">Expected May 2027</div>
+              <h3 class="subtitle mb-2">B.S. Mechanical Engineering — University of Colorado Boulder</h3>
               <p class="mb-0">
-                Add relevant coursework (Thermodynamics, Fluid Dynamics, Circuits, Design, Controls) and any academic
-                highlights.
+                GPA: 3.38. Building strong fundamentals in engineering analysis, design, and problem-solving.
               </p>
             </div>
 
             <div>
-              <div class="date-text mb-2">Additional Training</div>
-              <h3 class="subtitle mb-2">CAD / Fabrication / Computing</h3>
+              <div class="date-text mb-2">Awards & Certifications</div>
+              <h3 class="subtitle mb-2">Recognition & Training</h3>
               <p class="mb-0">
-                Add certifications, labs, clubs, or specialized training (SolidWorks, GD&T exposure, machining, 3D
-                printing, MATLAB).
+                2024 National Hispanic Scholar. ALA Basic Life Support (BLS) Provider (2025–2027).
               </p>
             </div>
 
@@ -299,52 +309,7 @@
     </div>
   </section>
 
-  <!-- Skills & Focus Section (replaces Interests) -->
-  <section class="py-5 my-5 position-relative" aria-label="Skills and Focus">
-    <div class="container overflow-hidden">
-      <div class="position-absolute top-0 start-50 translate-middle-x">
-        <div class="syne-font section-title" data-aos="fade-up">Skills</div>
-        <div class="syne-font section-title section-title-bg" data-aos="fade-up" data-aos-delay="200">Skills</div>
-        <div class="syne-font section-title section-title-bg" data-aos="fade-up" data-aos-delay="400">Skills</div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-6 py-5">
-          <div class="bg-light-alt p-5 rounded-4" data-aos="clip-bottom" data-aos-duration="1000">
-            <div class="content-title mb-4 fw-bold">Skills & Focus Areas</div>
-
-            <div class="mb-5">
-              <div class="date-text mb-2">Design</div>
-              <h3 class="subtitle mb-2">Solid Modeling, Drawings, and Design Intent</h3>
-              <p class="mb-0">
-                SolidWorks (or similar), part/assembly modeling, documentation, and iteration based on constraints.
-              </p>
-            </div>
-
-            <div class="mb-5">
-              <div class="date-text mb-2">Build & Test</div>
-              <h3 class="subtitle mb-2">Prototyping and Measurement</h3>
-              <p class="mb-0">
-                Rapid prototyping, basic instrumentation, experimental setups, and results-driven improvement.
-              </p>
-            </div>
-
-            <div>
-              <div class="date-text mb-2">Computing</div>
-              <h3 class="subtitle mb-2">MATLAB / Analysis / Technical Documentation</h3>
-              <p class="mb-0">
-                Engineering computation, plots/results, and clear communication of assumptions and findings.
-              </p>
-            </div>
-
-          </div>
-        </div>
-        <div class="col-md-6"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects Section (replaces Latest Works; no images) -->
+  <!-- Projects Section -->
   <section id="projects" class="py-5 my-5 position-relative">
     <div class="bg-light-alt position-absolute bottom-0 start-0 w-100" style="height: 50%; border-radius: 20px;"></div>
 
@@ -357,58 +322,55 @@
           <!-- Project 1 -->
           <div class="swiper-slide">
             <div class="card card-custom">
-              <div class="bg-light-alt rounded-top-4 d-flex align-items-center justify-content-center"
-                style="height: 180px;">
+              <div class="bg-light-alt rounded-top-4 d-flex align-items-center justify-content-center" style="height: 180px;">
                 <div class="text-center">
                   <div class="fw-bold">Project Media Placeholder</div>
                   <div class="text-muted small">Add images later</div>
                 </div>
               </div>
               <div class="card-body text-center">
-                <div class="date-text mb-2">Mechanical Design • Prototyping</div>
-                <h3 class="subtitle">Project Title #1</h3>
+                <div class="date-text mb-2">Jan 2025 – May 2025</div>
+                <h3 class="subtitle">Frictionless Motion Air Track</h3>
                 <p class="mb-0">
-                  One-sentence impact statement: what you built, what you measured, what improved.
+                  Designed and built an air track to study near-frictionless motion and improve experimental repeatability.
                 </p>
               </div>
             </div>
           </div>
 
-          <!-- Project 2 -->
+          <!-- Project 2 (placeholder) -->
           <div class="swiper-slide">
             <div class="card card-custom">
-              <div class="bg-light-alt rounded-top-4 d-flex align-items-center justify-content-center"
-                style="height: 180px;">
+              <div class="bg-light-alt rounded-top-4 d-flex align-items-center justify-content-center" style="height: 180px;">
                 <div class="text-center">
                   <div class="fw-bold">Project Media Placeholder</div>
                   <div class="text-muted small">Add images later</div>
                 </div>
               </div>
               <div class="card-body text-center">
-                <div class="date-text mb-2">Testing • Data • Iteration</div>
+                <div class="date-text mb-2">Project Category</div>
                 <h3 class="subtitle">Project Title #2</h3>
                 <p class="mb-0">
-                  Brief description of the goal, your approach, and a measurable outcome.
+                  Replace with a short description when you add your next project.
                 </p>
               </div>
             </div>
           </div>
 
-          <!-- Project 3 -->
+          <!-- Project 3 (placeholder) -->
           <div class="swiper-slide">
             <div class="card card-custom">
-              <div class="bg-light-alt rounded-top-4 d-flex align-items-center justify-content-center"
-                style="height: 180px;">
+              <div class="bg-light-alt rounded-top-4 d-flex align-items-center justify-content-center" style="height: 180px;">
                 <div class="text-center">
                   <div class="fw-bold">Project Media Placeholder</div>
                   <div class="text-muted small">Add images later</div>
                 </div>
               </div>
               <div class="card-body text-center">
-                <div class="date-text mb-2">CAD • Manufacturing</div>
+                <div class="date-text mb-2">Project Category</div>
                 <h3 class="subtitle">Project Title #3</h3>
                 <p class="mb-0">
-                  Highlight constraints: materials, time, performance targets, manufacturability.
+                  Replace with a short description when you add your next project.
                 </p>
               </div>
             </div>
@@ -429,135 +391,122 @@
     </div>
   </section>
 
- <!-- SolidWorks Section -->
-<section id="solidworks" class="py-5 my-5 bg-light-alt rounded-5 m-4" data-aos="clip-bottom">
-  <div class="container">
-    <div class="row align-items-center g-4">
-      <div class="col-lg-5" data-aos="fade-right">
-        <h2 class="content-title mb-3 fw-bold">SolidWorks</h2>
-        <p class="mb-3">
-          Selected drawings and models. I focus on clear design intent, assembly structure, and documentation that
-          supports manufacturing and iteration.
-        </p>
-        <ul class="mb-0">
-          <li class="mb-2">Part + assembly modeling</li>
-          <li class="mb-2">Drawing organization and documentation</li>
-          <li class="mb-2">Design iteration for fit/function</li>
-        </ul>
-      </div>
-
-      <div class="col-lg-7" data-aos="fade-left">
-        <div class="row g-3">
-          <!-- Tile 1 -->
-          <div class="col-6 col-lg-3">
-            <div class="bg-white rounded-4 p-3 h-100 border">
-              <div class="bg-light-alt rounded-3 d-flex align-items-center justify-content-center"
-                   style="height: 140px;">
-                <div class="text-center">
-                  <div class="fw-bold small">Drawing #1</div>
-                  <div class="text-muted small">Placeholder</div>
-                </div>
-              </div>
-              <div class="mt-2 small fw-bold text-center">Assembly Drawing</div>
-
-              <!-- Later:
-              <img src="assets/images/solidworks/drawing-01.jpg" class="img-fluid rounded-3" alt="SolidWorks drawing 1">
-              -->
-            </div>
-          </div>
-
-          <!-- Tile 2 -->
-          <div class="col-6 col-lg-3">
-            <div class="bg-white rounded-4 p-3 h-100 border">
-              <div class="bg-light-alt rounded-3 d-flex align-items-center justify-content-center"
-                   style="height: 140px;">
-                <div class="text-center">
-                  <div class="fw-bold small">Drawing #2</div>
-                  <div class="text-muted small">Placeholder</div>
-                </div>
-              </div>
-              <div class="mt-2 small fw-bold text-center">Part Drawing</div>
-              <!-- Later: <img ...> -->
-            </div>
-          </div>
-
-          <!-- Tile 3 -->
-          <div class="col-6 col-lg-3">
-            <div class="bg-white rounded-4 p-3 h-100 border">
-              <div class="bg-light-alt rounded-3 d-flex align-items-center justify-content-center"
-                   style="height: 140px;">
-                <div class="text-center">
-                  <div class="fw-bold small">Drawing #3</div>
-                  <div class="text-muted small">Placeholder</div>
-                </div>
-              </div>
-              <div class="mt-2 small fw-bold text-center">Exploded View</div>
-              <!-- Later: <img ...> -->
-            </div>
-          </div>
-
-          <!-- Tile 4 -->
-          <div class="col-6 col-lg-3">
-            <div class="bg-white rounded-4 p-3 h-100 border">
-              <div class="bg-light-alt rounded-3 d-flex align-items-center justify-content-center"
-                   style="height: 140px;">
-                <div class="text-center">
-                  <div class="fw-bold small">Drawing #4</div>
-                  <div class="text-muted small">Placeholder</div>
-                </div>
-              </div>
-              <div class="mt-2 small fw-bold text-center">Manufacturing Notes</div>
-              <!-- Later: <img ...> -->
-            </div>
-          </div>
+  <!-- SolidWorks Section (4-tile grid, placeholders only) -->
+  <section id="solidworks" class="py-5 my-5 bg-light-alt rounded-5 m-4" data-aos="clip-bottom">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-5" data-aos="fade-right">
+          <h2 class="content-title mb-3 fw-bold">SolidWorks</h2>
+          <p class="mb-3">
+            Selected drawings and models. This section will become a grid of four drawings (added later).
+          </p>
+          <ul class="mb-0">
+            <li class="mb-2">Part + assembly modeling</li>
+            <li class="mb-2">Drawing organization and documentation</li>
+            <li class="mb-2">Design iteration for fit/function</li>
+          </ul>
         </div>
 
-        <div class="text-muted small mt-3">
-          Tip: Keep images in <code>assets/images/solidworks/</code> and name them consistently (drawing-01, drawing-02, etc.).
+        <div class="col-lg-7" data-aos="fade-left">
+          <div class="row g-3">
+
+            <div class="col-6 col-lg-3">
+              <div class="bg-white rounded-4 p-3 h-100 border">
+                <div class="bg-light-alt rounded-3 d-flex align-items-center justify-content-center" style="height: 140px;">
+                  <div class="text-center">
+                    <div class="fw-bold small">Drawing #1</div>
+                    <div class="text-muted small">Placeholder</div>
+                  </div>
+                </div>
+                <div class="mt-2 small fw-bold text-center">Assembly Drawing</div>
+              </div>
+            </div>
+
+            <div class="col-6 col-lg-3">
+              <div class="bg-white rounded-4 p-3 h-100 border">
+                <div class="bg-light-alt rounded-3 d-flex align-items-center justify-content-center" style="height: 140px;">
+                  <div class="text-center">
+                    <div class="fw-bold small">Drawing #2</div>
+                    <div class="text-muted small">Placeholder</div>
+                  </div>
+                </div>
+                <div class="mt-2 small fw-bold text-center">Part Drawing</div>
+              </div>
+            </div>
+
+            <div class="col-6 col-lg-3">
+              <div class="bg-white rounded-4 p-3 h-100 border">
+                <div class="bg-light-alt rounded-3 d-flex align-items-center justify-content-center" style="height: 140px;">
+                  <div class="text-center">
+                    <div class="fw-bold small">Drawing #3</div>
+                    <div class="text-muted small">Placeholder</div>
+                  </div>
+                </div>
+                <div class="mt-2 small fw-bold text-center">Exploded View</div>
+              </div>
+            </div>
+
+            <div class="col-6 col-lg-3">
+              <div class="bg-white rounded-4 p-3 h-100 border">
+                <div class="bg-light-alt rounded-3 d-flex align-items-center justify-content-center" style="height: 140px;">
+                  <div class="text-center">
+                    <div class="fw-bold small">Drawing #4</div>
+                    <div class="text-muted small">Placeholder</div>
+                  </div>
+                </div>
+                <div class="mt-2 small fw-bold text-center">Manufacturing Notes</div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="text-muted small mt-3">
+            Later: place images in <code>assets/images/solidworks/</code> and swap each placeholder block for:
+            <code>&lt;img src="assets/images/solidworks/drawing-01.jpg" ... &gt;</code>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-
-  <!-- Resume Section -->
+  <!-- Resume Section (PDF link is ready; add file later) -->
   <section id="resume" class="py-5 my-5 position-relative" data-aos="fade-up">
     <div class="container">
       <h2 class="content-title text-center mb-5">Resume</h2>
 
       <div class="row g-4">
-        <div class="col-md-6">
+        <div class="col-lg-5">
           <div class="bg-light-alt p-5 rounded-4 h-100">
-            <div class="content-title fw-bold mb-3">Resume Overview</div>
-            <ul class="mb-0">
-              <li class="mb-2">Mechanical engineering undergraduate</li>
-              <li class="mb-2">CAD + prototyping + testing emphasis</li>
-              <li class="mb-2">Project-based experience and documentation</li>
-              <li class="mb-2">Engineering computation (MATLAB) exposure</li>
-            </ul>
-            <div class="text-muted mt-4">
-              Add a <code>resume.pdf</code> later, then uncomment a download link here.
-              <!-- Example: <a href="resume.pdf" class="btn btn-outline-warning mt-3">Download Resume (PDF)</a> -->
+            <div class="content-title fw-bold mb-3">Andrew De La Vara</div>
+            <div class="mb-3">
+              <div class="mb-1"><i class="fa-solid fa-location-dot me-2"></i>Grand Junction, CO</div>
+              <div class="mb-1"><i class="fa-solid fa-phone me-2"></i>720-610-4770</div>
+              <div class="mb-1"><i class="fa-solid fa-envelope me-2"></i>Andrewdelavara571@gmail.com</div>
+              <div class="mb-1"><i class="fa-brands fa-linkedin me-2"></i>linkedin.com/in/andrewdelavara</div>
+            </div>
+
+            <!-- Add your PDF later at: assets/docs/resume.pdf -->
+            <a class="btn btn-outline-warning rounded-pill"
+               href="assets/docs/resume.pdf" target="_blank" rel="noopener">
+              Open Resume (PDF)
+            </a>
+
+            <div class="text-muted small mt-3">
+              To enable this link: create <code>assets/docs/</code> and upload your resume named <code>resume.pdf</code>.
             </div>
           </div>
         </div>
 
-        <div class="col-md-6">
-          <div class="bg-light-alt p-5 rounded-4 h-100">
-            <div class="content-title fw-bold mb-3">Quick Links</div>
-            <div class="d-flex flex-column gap-3">
-              <a href="#projects" class="btn btn-custom d-flex align-items-center justify-content-center gap-2">
-                <span>Go to Projects</span>
-                <i class="fas fa-arrow-right"></i>
-              </a>
-              <a href="#contact" class="btn btn-outline-warning rounded-pill">
-                Contact
-              </a>
-              <!-- Replace # with real URLs later -->
-              <a href="#" class="btn btn-outline-secondary rounded-pill">LinkedIn (add link later)</a>
-              <a href="#" class="btn btn-outline-secondary rounded-pill">GitHub (add link later)</a>
-            </div>
+        <div class="col-lg-7">
+          <div class="bg-light-alt p-4 rounded-4 h-100">
+            <div class="content-title fw-bold mb-3">Highlights</div>
+            <ul class="mb-0">
+              <li class="mb-2">B.S. Mechanical Engineering — University of Colorado Boulder (Expected May 2027)</li>
+              <li class="mb-2">Project: Frictionless Motion Air Track (design/build/test)</li>
+              <li class="mb-2">Field Technician — Ridgeview Data Collection</li>
+              <li class="mb-2">Vice President — Basic Life Support Club</li>
+              <li class="mb-2">2024 National Hispanic Scholar; ALA BLS Provider (2025–2027)</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -565,18 +514,17 @@
     </div>
   </section>
 
-  <!-- Contact Section (kept from template, updated copy) -->
+  <!-- Contact Section -->
   <section id="contact" class="py-5 my-5 bg-light-alt rounded-5 m-4" data-aos="clip-bottom">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-md-6" data-aos="fade-right">
           <h2 class="content-title mb-4 fw-bold">Contact</h2>
           <p class="mb-4">
-            Use this form for general inquiries. Note: this form is static until you connect a form handler (Formspree,
-            Netlify Forms, or a simple backend endpoint).
+            This form is currently static until you connect a form handler (Formspree, Netlify Forms, or a backend endpoint).
           </p>
           <p class="mb-0">
-            Preferred contact: <span class="fw-bold">your.email@domain.com</span>
+            Preferred contact: <span class="fw-bold">Andrewdelavara571@gmail.com</span>
           </p>
         </div>
 
@@ -598,21 +546,25 @@
     </div>
   </section>
 
-  <!-- Footer Section -->
+  <!-- Footer -->
   <footer class="py-5 bg-dark-custom rounded-4 m-3 m-lg-4" data-aos="clip-bottom">
     <div class="container">
       <div class="row mb-5">
         <div class="col-md-4">
           <div class="text-light-custom content-title fw-bold" data-aos="fade-right" data-aos-duration="1000">
-            Andrew Delavara
+            Andrew De La Vara
           </div>
           <p class="text-light-custom mb-4">
             Mechanical Engineering portfolio: CAD, prototyping, testing, and project documentation.
           </p>
           <div class="d-flex flex-wrap gap-3">
-            <!-- Replace # with real links when ready -->
-            <a href="#" aria-label="GitHub"><i class="fab fa-github social-icon text-light-custom"></i></a>
-            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin social-icon text-light-custom"></i></a>
+            <a href="https://linkedin.com/in/andrewdelavara" aria-label="LinkedIn" target="_blank" rel="noopener">
+              <i class="fab fa-linkedin social-icon text-light-custom"></i>
+            </a>
+            <!-- Add your GitHub link when ready -->
+            <a href="#" aria-label="GitHub">
+              <i class="fab fa-github social-icon text-light-custom"></i>
+            </a>
           </div>
         </div>
 
@@ -620,6 +572,8 @@
           <ul class="list-unstyled">
             <li class="mb-2"><a href="#top" class="footer-link text-yellow">Home</a></li>
             <li class="mb-2"><a href="#about" class="footer-link">About</a></li>
+            <li class="mb-2"><a href="#experience" class="footer-link">Experience</a></li>
+            <li class="mb-2"><a href="#education" class="footer-link">Education</a></li>
             <li class="mb-2"><a href="#projects" class="footer-link">Projects</a></li>
             <li class="mb-2"><a href="#solidworks" class="footer-link">SolidWorks</a></li>
             <li class="mb-2"><a href="#resume" class="footer-link">Resume</a></li>
@@ -631,9 +585,9 @@
           <p class="text-light-custom mb-4">
             For internships, collaboration, or project questions, please reach out.
           </p>
-          <p class="text-light-custom fst-italic fs-5">
-            <a href="mailto:your.email@domain.com" class="text-light-custom text-decoration-none">
-              your.email@domain.com
+          <p class="text-light-custom fst-italic fs-5 mb-0">
+            <a href="mailto:Andrewdelavara571@gmail.com" class="text-light-custom text-decoration-none">
+              Andrewdelavara571@gmail.com
             </a>
           </p>
         </div>
@@ -641,7 +595,7 @@
 
       <div class="border-top border-light pt-4">
         <p class="text-light-custom text-center mb-0">
-          ©2025 Andrew Delavara. Built with a modified template.
+          ©2025 Andrew De La Vara. Built with a modified template.
         </p>
       </div>
     </div>
@@ -649,13 +603,77 @@
 
   <!-- Bootstrap JS Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- JQuery js -->
+
+  <!-- Optional Swiper JS (CDN) so sliders work even if local template JS files are missing -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- AOS JS (THIS FIXES "BLANK PAGE" WHEN data-aos ELEMENTS STAY HIDDEN) -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script>
+    // Initialize AOS safely
+    if (window.AOS) {
+      AOS.init({ once: true, duration: 800, offset: 120 });
+    }
+
+    // Minimal menu open/close (works even if template js/script.js is missing)
+    (function () {
+      const menu = document.getElementById('fullscreenMenu');
+      const openBtn = document.getElementById('menuOpenBtn');
+      const closeBtn = document.getElementById('closeMenuBtn');
+
+      function openMenu() { if (menu) menu.classList.add('is-open'); }
+      function closeMenu() { if (menu) menu.classList.remove('is-open'); }
+
+      if (openBtn) openBtn.addEventListener('click', openMenu);
+      if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+
+      // Close menu when a link is clicked
+      document.querySelectorAll('#fullscreenMenu a.menu-link').forEach(a => {
+        a.addEventListener('click', closeMenu);
+      });
+
+      // ESC to close
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeMenu();
+      });
+    })();
+
+    // Minimal Swiper init (so content is visible and carousels work)
+    (function () {
+      if (!window.Swiper) return;
+
+      new Swiper('.servicesSwiper', {
+        loop: true,
+        pagination: { el: '.servicesSwiper .swiper-pagination', clickable: true },
+        autoplay: { delay: 4500, disableOnInteraction: false }
+      });
+
+      new Swiper('.worksSwiper', {
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 20,
+        pagination: { el: '.worksSwiper .swiper-pagination', clickable: true },
+        navigation: {
+          nextEl: '.worksSwiper .swiper-button-next',
+          prevEl: '.worksSwiper .swiper-button-prev'
+        },
+        breakpoints: {
+          768: { slidesPerView: 2 },
+          1200: { slidesPerView: 3 }
+        }
+      });
+    })();
+  </script>
+
+  <!-- If you still have these template files and want them, you can keep them.
+       If they do NOT exist in your repo, remove them to avoid 404s in the console. -->
+  <!--
   <script src="js/jquery-1.11.0.min.js"></script>
-  <!-- Plugins js -->
   <script src="js/plugins.js"></script>
-  <!-- Script js -->
   <script src="js/script.js"></script>
+  -->
+
 </body>
-
 </html>
-
+```
