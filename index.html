@@ -6,214 +6,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.6" />
   <title>Andrew De La Vara | Portfolio</title>
 
-  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Inter:wght@400;600;700;800&display=swap"
-    rel="stylesheet" />
-  <!-- Font Awesome for icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <!-- AOS Animation CSS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <!-- Swiper JS CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <!-- custom style CSS -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- VISIBILITY FAILSAFE:
-       Many templates hide [data-aos] elements via CSS until AOS JS initializes.
-       If AOS JS is missing, content can appear "blank".
-       This ensures content is visible even if AOS fails to initialize. -->
   <style>
+    /* Global Smooth Scroll */
     html { scroll-behavior: smooth; }
     
-    /* Ensure animations work */
+    /* VISIBILITY FAILSAFE:
+       Ensures content is visible even if AOS animation library fails to load. */
     [data-aos] { opacity: 1 !important; transform: none !important; }
-
-    /* --- FIXED MENU CSS --- */
-    .fullscreen-menu-overlay {
-      display: none; /* Hidden by default */
-      position: fixed; /* Stays in place when scrolling */
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(18, 18, 18, 0.98); /* Dark background */
-      z-index: 9999; /* Sit on top of EVERYTHING */
-      overflow-y: auto; /* Allow scrolling inside menu if needed */
-      padding-top: 20px;
-    }
-
-    /* JavaScript toggles this class to show the menu */
-    .fullscreen-menu-overlay.is-open {
-      display: block !important;
-    }
-
-    /* Menu Link Styling */
-    .menu-link {
-      color: #fff;
-      font-size: 2rem;
-      text-decoration: none;
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      line-height: 1.5;
-      transition: color 0.3s ease;
-    }
-    .menu-link:hover {
-      color: #ffc107; /* Yellow hover effect */
-    }
-    
-    .close-menu-btn {
-      background: none;
-      border: none;
-      color: #fff;
-      cursor: pointer;
-      transition: transform 0.3s;
-    }
-    .close-menu-btn:hover {
-      transform: rotate(90deg);
-      color: #ffc107;
-    }
-
-    /* --- ADD THIS TO YOUR EXISTING STYLE SECTION --- */
-    
-    /* 1. Make the menu cover the screen and stay fixed */
-    .fullscreen-menu-overlay {
-      display: none;        /* Hidden by default */
-      position: fixed;      /* Stays in place when scrolling */
-      top: 0; 
-      left: 0;
-      width: 100%;
-      height: 100vh;        /* Full viewport height */
-      background-color: rgba(0, 0, 0, 0.95); /* Dark Black Background */
-      z-index: 9999;        /* Sits on top of EVERYTHING */
-      overflow-y: auto;     /* Allows scrolling if menu is tall */
-      padding: 40px;
-      text-align: center;   /* Centers the text */
-    }
-
-    /* 2. When JavaScript adds this class, the menu appears */
-    .fullscreen-menu-overlay.is-open {
-      display: flex !important; /* Uses flexbox to center content */
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
-    /* 3. Style the links so they are big and white */
-    .menu-link {
-      color: #ffffff;
-      font-size: 2rem;
-      font-weight: bold;
-      text-decoration: none;
-      display: block;
-      margin: 15px 0;
-      transition: color 0.3s;
-    }
-    
-    .menu-link:hover {
-      color: #ffc107; /* Gold color on hover */
-    }
-
-    /* 4. Style the Close Button (X) */
-    .close-menu-btn {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      background: none;
-      border: none;
-      color: white;
-      font-size: 2.5rem;
-      cursor: pointer;
-    }
   </style>
-
-  <script>
-    function openFullscreenMenu() {
-      console.log("Attempting to open menu...");
-      var menu = document.getElementById("fullscreenMenu");
-      if (menu) {
-        // We use inline styles to override everything else immediately
-        menu.style.cssText = "display: flex !important; visibility: visible !important; opacity: 1 !important; z-index: 999999 !important; position: fixed !important; top: 0; left: 0; width: 100%; height: 100vh; background-color: rgba(18,18,18,0.98);";
-        console.log("Menu Opened.");
-      } else {
-        alert("Error: Menu element 'fullscreenMenu' not found.");
-      }
-    }
-
-    function closeFullscreenMenu() {
-      var menu = document.getElementById("fullscreenMenu");
-      if (menu) {
-        menu.style.display = "none";
-      }
-    }
-  </script>
 </head>
 
 <body>
 
-  <!-- SVG icon symbols (kept from template; safe even if unused) -->
   <svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
     <symbol id="instagram" viewBox="0 0 15 15">
-      <path fill="none" stroke="currentColor"
-        d="M11 3.5h1M4.5.5h6a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4h-6a4 4 0 0 1-4-4v-6a4 4 0 0 1 4-4Zm3 10a3 3 0 1 1 0-6a3 3 0 0 1 0 6Z" />
+      <path fill="none" stroke="currentColor" d="M11 3.5h1M4.5.5h6a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4h-6a4 4 0 0 1-4-4v-6a4 4 0 0 1 4-4Zm3 10a3 3 0 1 1 0-6a3 3 0 0 1 0 6Z" />
     </symbol>
     <symbol id="facebook" viewBox="0 0 15 15">
-      <path fill="none" stroke="currentColor"
-        d="M7.5 14.5a7 7 0 1 1 0-14a7 7 0 0 1 0 14Zm0 0v-8a2 2 0 0 1 2-2h.5m-5 4h5" />
+      <path fill="none" stroke="currentColor" d="M7.5 14.5a7 7 0 1 1 0-14a7 7 0 0 1 0 14Zm0 0v-8a2 2 0 0 1 2-2h.5m-5 4h5" />
     </symbol>
     <symbol id="twitter" viewBox="0 0 15 15">
-      <path fill="currentColor"
-        d="m14.478 1.5l.5-.033a.5.5 0 0 0-.871-.301l.371.334Zm-.498 2.959a.5.5 0 1 0-1 0h1Zm-6.49.082h-.5h.5Zm0 .959h.5h-.5Zm-6.99 7V12a.5.5 0 0 0-.278.916L.5 12.5Zm.998-11l.469-.175a.5.5 0 0 0-.916-.048l.447.223Zm3.994 9l.354.353a.5.5 0 0 0-.195-.827l-.159.474Zm7.224-8.027l-.37.336l.18.199l.265-.04l-.075-.495Zm1.264-.94c.051.778.003 1.25-.123 1.606c-.122.345-.336.629-.723 1l.692.722c.438-.42.776-.832.974-1.388c.193-.546.232-1.178.177-2.006l-.998.066Zm0 3.654V4.46h-1v.728h1Zm-6.99-.646V5.5h1v-.959h-1Zm0 .959V6h1v-.5h-1ZM10.525 1a3.539 3.539 0 0 0-3.537 3.541h1A2.539 2.539 0 0 1 10.526 2V1Zm2.454 4.187C12.98 9.503 9.487 13 5.18 13v1c4.86 0 8.8-3.946 8.8-8.813h-1ZM1.03 1.675C1.574 3.127 3.614 6 7.49 6V5C4.174 5 2.421 2.54 1.966 1.325l-.937.35Zm.021-.398C.004 3.373-.157 5.407.604 7.139c.759 1.727 2.392 3.055 4.73 3.835l.317-.948c-2.155-.72-3.518-1.892-4.132-3.29c-.612-1.393-.523-3.11.427-5.013l-.895-.446Zm4.087 8.87C4.536 10.75 2.726 12 .5 12v1c2.566 0 4.617-1.416 5.346-2.147l-.708-.706Zm7.949-8.009A3.445 3.445 0 0 0 10.526 1v1c.721 0 1.37.311 1.82.809l.74-.671Zm-.296.83a3.513 3.513 0 0 0 2.06-1.134l-.744-.668a2.514 2.514 0 0 1-1.466.813l.15.989ZM.222 12.916C1.863 14.01 3.583 14 5.18 14v-1c-1.63 0-3.048-.011-4.402-.916l-.556.832Z" />
+      <path fill="currentColor" d="m14.478 1.5l.5-.033a.5.5 0 0 0-.871-.301l.371.334Zm-.498 2.959a.5.5 0 1 0-1 0h1Zm-6.49.082h-.5h.5Zm0 .959h.5h-.5Zm-6.99 7V12a.5.5 0 0 0-.278.916L.5 12.5Zm.998-11l.469-.175a.5.5 0 0 0-.916-.048l.447.223Zm3.994 9l.354.353a.5.5 0 0 0-.195-.827l-.159.474Zm7.224-8.027l-.37.336l.18.199l.265-.04l-.075-.495Zm1.264-.94c.051.778.003 1.25-.123 1.606c-.122.345-.336.629-.723 1l.692.722c.438-.42.776-.832.974-1.388c.193-.546.232-1.178.177-2.006l-.998.066Zm0 3.654V4.46h-1v.728h1Zm-6.99-.646V5.5h1v-.959h-1Zm0 .959V6h1v-.5h-1ZM10.525 1a3.539 3.539 0 0 0-3.537 3.541h1A2.539 2.539 0 0 1 10.526 2V1Zm2.454 4.187C12.98 9.503 9.487 13 5.18 13v1c4.86 0 8.8-3.946 8.8-8.813h-1ZM1.03 1.675C1.574 3.127 3.614 6 7.49 6V5C4.174 5 2.421 2.54 1.966 1.325l-.937.35Zm.021-.398C.004 3.373-.157 5.407.604 7.139c.759 1.727 2.392 3.055 4.73 3.835l.317-.948c-2.155-.72-3.518-1.892-4.132-3.29c-.612-1.393-.523-3.11.427-5.013l-.895-.446Zm4.087 8.87C4.536 10.75 2.726 12 .5 12v1c2.566 0 4.617-1.416 5.346-2.147l-.708-.706Zm7.949-8.009A3.445 3.445 0 0 0 10.526 1v1c.721 0 1.37.311 1.82.809l.74-.671Zm-.296.83a3.513 3.513 0 0 0 2.06-1.134l-.744-.668a2.514 2.514 0 0 1-1.466.813l.15.989ZM.222 12.916C1.863 14.01 3.583 14 5.18 14v-1c-1.63 0-3.048-.011-4.402-.916l-.556.832Z" />
     </symbol>
   </svg>
 
-  <!-- Fullscreen Menu Overlay -->
-  <div id="fullscreenMenu" class="fullscreen-menu-overlay">
-    <div class="container h-100">
-      <div class="row h-100 align-items-center">
-        <div class="col-lg-7 position-relative">
-          <button onclick="closeFullscreenMenu()" id="closeMenuBtn" class="close-menu-btn position-absolute top-0 end-0 m-4">
-              <i class="fas fa-times fs-1"></i>
-          </button>
-
-          <nav class="fullscreen-menu-nav">
-            <ul class="list-unstyled">
-              <li><a href="#top" class="menu-link">Home</a></li>
-              <li><a href="#about" class="menu-link">About</a></li>
-              <li><a href="#experience" class="menu-link">Experience</a></li>
-              <li><a href="#education" class="menu-link">Education</a></li>
-              <li><a href="#projects" class="menu-link">Projects</a></li>
-              <li><a href="#solidworks" class="menu-link">SolidWorks</a></li>
-              <li><a href="#resume" class="menu-link">Resume</a></li>
-              <li><a href="#contact" class="menu-link">Contact</a></li>
-            </ul>
-          </nav>
-
-          <div class="menu-social-links mt-5">
-            <a href="https://linkedin.com/in/andrewdelavara" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener">
-              <i class="fab fa-linkedin"></i>
-            </a>
-            <!-- Add your GitHub profile link here when ready -->
-            <a href="#" class="social-link" aria-label="GitHub">
-              <i class="fab fa-github"></i>
-            </a>
-          </div>
-        </div>
-
-        <div class="col-lg-5 text-white py-3">
-          <p class="mb-3">
-            Grand Junction, CO <br>
-            Andrewdelavara571@gmail.com <br>
-            ande3836.github.io
-          </p>
-          <a href="#contact" class="btn btn-outline-warning rounded-pill">Contact</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Header/Hero Section -->
   <header id="top" class="position-relative">
     <div class="bg-dark-custom p-2 p-lg-5 m-3 m-lg-4 rounded-4">
 
@@ -221,20 +44,13 @@
         <div class="text-light-custom content-title fw-bold" data-aos="fade-right" data-aos-duration="1000">
           ADLV
         </div>
-
-        <button onclick="openFullscreenMenu()" id="menuOpenBtn" class="menu-toggle-btn btn d-flex align-items-center gap-2" data-aos="fade-left" data-aos-duration="1000" type="button">
-          <span class="text-light-custom fw-bold">MENU</span>
-          <i class="fas fa-bars text-light-custom"></i>
-        </button>
-      </nav>
+        </nav>
 
       <div class="w-100 text-center overflow-hidden">
         <div class="syne-font hero-title text-yellow" data-aos="fade-up">ANDREW</div>
         <div class="syne-font hero-title hero-bg-text" data-aos="fade-up" data-aos-delay="175">DE LA VARA</div>
-<!--        <div class="syne-font hero-title hero-bg-text" data-aos="fade-up" data-aos-delay="200">MECHANICAL</div>
-        <div class="syne-font hero-title hero-bg-text" data-aos="fade-up" data-aos-delay="200">ENGINEERING</div>   -->
       </div>
-    
+      
       <div class="banner-content">
         <div class="container">
           <div class="row g-lg-5">
@@ -245,14 +61,14 @@
                 </div>
                 <p class="text-light-custom mb-4" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
                   I build practical engineering solutions by combining CAD-driven design, prototyping, and test-based iteration.
-                  This site highlights projects, SolidWorks work, and a resume overview (PDF can be added later).
+                  This site highlights projects, SolidWorks work, and a resume overview.
                 </p>
                 <div class="d-flex flex-wrap gap-3" data-aos="fade-right" data-aos-delay="400" data-aos-duration="1000">
                   <a href="#projects" class="btn btn-custom d-flex align-items-center gap-2">
                     <span>View Projects</span>
                     <i class="fas fa-arrow-right"></i>
                   </a>
-                  <a href="#resume" class="btn btn-outline-warning rounded-pill align-items-center gap-2">
+                  <a href="#resume" class="btn btn-outline-warning rounded-pill">
                     Resume
                   </a>
                 </div>
@@ -260,32 +76,30 @@
             </div>
 
             <div class="col-md-6">
-              <div data-aos="text-reveal-up" data-aos-delay="600"
-                class="text-animation m-0 bg-primary-subtle p-4 p-lg-5 rounded-3">
+              <div data-aos="text-reveal-up" data-aos-delay="600" class="text-animation m-0 bg-primary-subtle p-4 p-lg-5 rounded-3">
                 <div class="swiper servicesSwiper">
                   <div class="swiper-wrapper">
                     <div class="swiper-slide">
                       <div class="text-light-custom content-title fw-bold">CAD & Mechanical Design</div>
                       <p class="text-light-custom mb-4">
-                        Expierence with iterative solid modeling, assembly structure, and design intent to support iteration and manufacturability.
+                        Experience with iterative solid modeling, assembly structure, and design intent to support iteration and manufacturability.
                       </p>
                     </div>
 
                     <div class="swiper-slide">
                       <div class="text-light-custom content-title fw-bold">Prototyping & Testing</div>
                       <p class="text-light-custom mb-4">
-                        Hands-on building and measurement-based testing expierence to validate performance and improve designs.
+                        Hands-on building and measurement-based testing experience to validate performance and improve designs.
                       </p>
                     </div>
 
                     <div class="swiper-slide">
                       <div class="text-light-custom content-title fw-bold">Technical Computing</div>
                       <p class="text-light-custom mb-4">
-                        MATLAB analysis and documentation abilities allowing for clearly and efficient comunication of results.
+                        MATLAB analysis and documentation abilities allowing for clearly and efficient communication of results.
                       </p>
                     </div>
                   </div>
-
                   <div class="swiper-pagination text-start"></div>
                 </div>
               </div>
@@ -298,26 +112,16 @@
     </div>
   </header>
 
-  <!-- About Section -->
   <section id="about" class="py-5 my-5 position-relative">
     <div class="container">
       <div class="row g-lg-5 align-items-center">
 
-        <!-- Headshot image call -->
-       <div class="col-md-6" data-aos="clip-bottom" data-aos-duration="1000">
-          <img
-            src="/headshot.jpeg"
-            class="img-fluid rounded-4"
-            alt="Andrew De La Vara headshot"
-            style="width: 100%; height: 720px; object-fit: cover;"
-          />
-      </div>
-
-
+        <div class="col-md-6" data-aos="clip-bottom" data-aos-duration="1000">
+          <img src="/headshot.jpeg" class="img-fluid rounded-4" alt="Andrew De La Vara headshot" style="width: 100%; height: 720px; object-fit: cover;" />
+        </div>
 
         <div class="col-md-6" data-aos="clip-top" data-aos-delay="200">
           <div class="content-title mb-4 fw-bold">About</div>
-      
           <p class="mb-4">
             I am a Mechanical Engineering undergraduate at the University of Colorado Boulder (expected May 2027).
             I enjoy projects that combine CAD-driven design, hands-on prototyping, and testing to validate and improve performance.
@@ -335,7 +139,6 @@
     </div>
   </section>
 
-  <!-- Experience Section -->
   <section id="experience" class="py-5 my-5 position-relative overflow-hidden">
     <div class="container position-relative h-100">
       <div class="position-absolute top-0 start-50 translate-middle-x">
@@ -353,8 +156,7 @@
               <div class="date-text mb-2">Jul 2025 – Present</div>
               <h3 class="subtitle mb-2">Field Technician — Ridgeview Data Collection</h3>
               <p class="mb-0">
-                Collect and document field data with accuracy and consistency. Support team operations through reliable execution
-                and clear communication.
+                Collect and document field data with accuracy and consistency. Support team operations through reliable execution and clear communication.
               </p>
             </div>
 
@@ -381,7 +183,6 @@
     </div>
   </section>
 
-  <!-- Education Section -->
   <section id="education" class="py-5 my-5 position-relative overflow-hidden">
     <div class="container">
       <div class="position-absolute top-0 start-50 translate-middle-x">
@@ -419,7 +220,6 @@
     </div>
   </section>
 
-  <!-- Projects Section -->
   <section id="projects" class="py-5 my-5 position-relative">
     <div class="bg-light-alt position-absolute bottom-0 start-0 w-100" style="height: 50%; border-radius: 20px;"></div>
 
@@ -429,21 +229,14 @@
       <div class="swiper worksSwiper mb-5" data-aos="fade-up" data-aos-delay="200">
         <div class="swiper-wrapper">
 
-          <!-- Project 1 -->
-        <div class="swiper-slide">
+          <div class="swiper-slide">
             <div class="card card-custom">
               <div class="bg-light-alt rounded-top-4 d-flex align-items-center justify-content-center" style="height: 180px;">
                 <a href="air-track.html" style="width: 100%; height: 100%;">
-                  <img
-                      src="/air%20track%20body%20assembly.jpg"
-                      class="img-fluid rounded-top-4"
-                      alt="air track assembly"
-                      style="width: 100%; height: 180px; object-fit: cover;"
-                      loading="lazy"
-                  />
+                  <img src="/air%20track%20body%20assembly.jpg" class="img-fluid rounded-top-4" alt="air track assembly" style="width: 100%; height: 180px; object-fit: cover;" loading="lazy" />
                 </a>
               </div>
-              
+
               <div class="card-body text-center">
                 <div class="date-text mb-2">Jan 2025 – May 2025</div>
                 <h3 class="subtitle">Frictionless Motion Air Track</h3>
@@ -455,20 +248,14 @@
             </div>
           </div>
 
-          <!-- Project 2 (placeholder) -->
           <div class="swiper-slide">
             <div class="card card-custom">
               <div class="bg-light-alt rounded-top-4 d-flex align-items-center justify-content-center" style="height: 180px;">
                 <a href="dynatronics.html" style="width: 100%; height: 100%;">
-                  <img
-                      src="/Dynatronics%20D9502.jpg"
-                      class="img-fluid rounded-top-4"
-                      alt="Athletic Trainer Consultation"
-                      style="width: 100%; height: 180px; object-fit: cover;"
-                      loading="lazy"
-                  />
+                  <img src="/Dynatronics%20D9502.jpg" class="img-fluid rounded-top-4" alt="Athletic Trainer Consultation" style="width: 100%; height: 180px; object-fit: cover;" loading="lazy" />
                 </a>
-              </div> <div class="card-body text-center">
+              </div>
+              <div class="card-body text-center">
                 <div class="date-text mb-2">Project Category</div>
                 <h3 class="subtitle">Dynatronics D9502 Consultation</h3>
                 <p class="mb-0">
@@ -479,20 +266,14 @@
             </div>
           </div>
 
-          <!-- Project 3 (placeholder) -->
           <div class="swiper-slide">
             <div class="card card-custom">
               <div class="bg-light-alt rounded-top-4 d-flex align-items-center justify-content-center" style="height: 180px;">
                 <a href="Parkinsons.html" style="width: 100%; height: 100%;">
-                  <img
-                    src="/cueing%20photo.png"
-                    class="img-fluid rounded-top-4"
-                    alt="Parkinsons Belt Project"
-                    style="width: 100%; height: 180px; object-fit: cover;"
-                    loading="lazy"
-                  />
+                  <img src="/cueing%20photo.png" class="img-fluid rounded-top-4" alt="Parkinsons Belt Project" style="width: 100%; height: 180px; object-fit: cover;" loading="lazy" />
                 </a>
-              </div> <div class="card-body text-center">
+              </div>
+              <div class="card-body text-center">
                 <div class="date-text mb-2">Project Category</div>
                 <h3 class="subtitle">Parkinsons Walking Assist Belt</h3>
                 <p class="mb-0">
@@ -509,16 +290,9 @@
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
       </div>
-
-      <div class="text-center">
-        <div class="text-muted">
-          Later, you can create a dedicated <code>projects.html</code> and link each card to a detailed case study page.
-        </div>
-      </div>
     </div>
   </section>
 
-  <!-- SolidWorks Section (4-tile grid, placeholders only) -->
   <section id="solidworks" class="py-5 my-5 bg-light-alt rounded-5 m-4" data-aos="clip-bottom">
     <div class="container">
       <div class="row align-items-center g-4">
@@ -534,253 +308,4 @@
           </ul>
         </div>
 
-        <div class="col-lg-7" data-aos="fade-left">
-          <div class="row g-3">
-
-            <div class="col-6 col-lg-3">
-              <div class="bg-white rounded-4 p-3 h-100 border">
-                <div class="bg-light-alt rounded-3 d-flex align-items-center justify-content-center" style="height: 140px;">
-                  <div class="text-center">
-                    <div class="fw-bold small">Drawing #1</div>
-                    <div class="text-muted small">Placeholder</div>
-                  </div>
-                </div>
-                <div class="mt-2 small fw-bold text-center">Assembly Drawing</div>
-              </div>
-            </div>
-
-            <div class="col-6 col-lg-3">
-              <div class="bg-white rounded-4 p-3 h-100 border">
-                <div class="bg-light-alt rounded-3 d-flex align-items-center justify-content-center" style="height: 140px;">
-                  <div class="text-center">
-                    <div class="fw-bold small">Drawing #2</div>
-                    <div class="text-muted small">Placeholder</div>
-                  </div>
-                </div>
-                <div class="mt-2 small fw-bold text-center">Part Drawing</div>
-              </div>
-            </div>
-
-            <div class="col-6 col-lg-3">
-              <div class="bg-white rounded-4 p-3 h-100 border">
-                <div class="bg-light-alt rounded-3 d-flex align-items-center justify-content-center" style="height: 140px;">
-                  <div class="text-center">
-                    <div class="fw-bold small">Drawing #3</div>
-                    <div class="text-muted small">Placeholder</div>
-                  </div>
-                </div>
-                <div class="mt-2 small fw-bold text-center">Exploded View</div>
-              </div>
-            </div>
-
-            <div class="col-6 col-lg-3">
-              <div class="bg-white rounded-4 p-3 h-100 border">
-                <div class="bg-light-alt rounded-3 d-flex align-items-center justify-content-center" style="height: 140px;">
-                  <div class="text-center">
-                    <div class="fw-bold small">Drawing #4</div>
-                    <div class="text-muted small">Placeholder</div>
-                  </div>
-                </div>
-                <div class="mt-2 small fw-bold text-center">Manufacturing Notes</div>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="text-muted small mt-3">
-            Later: place images in <code>assets/images/solidworks/</code> and swap each placeholder block for:
-            <code>&lt;img src="assets/images/solidworks/drawing-01.jpg" ... &gt;</code>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Resume Section (PDF link is ready; add file later) -->
-  <section id="resume" class="py-5 my-5 position-relative" data-aos="fade-up">
-    <div class="container">
-      <h2 class="content-title text-center mb-5">Resume</h2>
-
-      <div class="row g-4">
-        <div class="col-lg-5">
-          <div class="bg-light-alt p-5 rounded-4 h-100">
-            <div class="content-title fw-bold mb-3">Andrew De La Vara</div>
-            <div class="mb-3">
-              <div class="mb-1"><i class="fa-solid fa-location-dot me-2"></i>Grand Junction, CO</div>
-              <div class="mb-1"><i class="fa-solid fa-phone me-2"></i>720-610-4770</div>
-              <div class="mb-1"><i class="fa-solid fa-envelope me-2"></i>Andrewdelavara571@gmail.com</div>
-              <div class="mb-1"><i class="fa-brands fa-linkedin me-2"></i>linkedin.com/in/andrewdelavara</div>
-            </div>
-
-            <!-- Add your PDF later at: assets/docs/resume.pdf -->
-           <a class="btn btn-outline-warning rounded-pill"
-               href="resume.pdf" 
-               target="_blank" 
-               rel="noopener">
-               Open Resume (PDF)
-            </a>
-
-            <div class="text-muted small mt-3">
-              To enable this link: create <code>assets/docs/</code> and upload your resume named <code>resume.pdf</code>.
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-7">
-          <div class="bg-light-alt p-4 rounded-4 h-100">
-            <div class="content-title fw-bold mb-3">Highlights</div>
-            <ul class="mb-0">
-              <li class="mb-2">B.S. Mechanical Engineering — University of Colorado Boulder (Expected May 2027)</li>
-              <li class="mb-2">Project: Frictionless Motion Air Track (design/build/test)</li>
-              <li class="mb-2">Field Technician — Ridgeview Data Collection</li>
-              <li class="mb-2">Vice President — Basic Life Support Club</li>
-              <li class="mb-2">2024 National Hispanic Scholar; ALA BLS Provider (2025–2027)</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
- <!-- Contact Section -->
-<section id="contact" class="py-5 my-5 bg-light-alt rounded-5 m-4" data-aos="clip-bottom">
-  <div class="container">
-    <div class="row align-items-start g-4">
-      <div class="col-lg-5" data-aos="fade-right">
-        <h2 class="content-title mb-4 fw-bold">Contact</h2>
-       
-
-        <a class="btn btn-outline-warning rounded-pill"
-           href="https://docs.google.com/forms/d/e/1FAIpQLScgWAnUOeSzB9LisbYy62CDWNtlzGAeOI8gZvMqNue9JTsemg/viewform?usp=dialog"
-           target="_blank" rel="noopener">
-          Open Form in New Tab
-        </a>
-      </div>
-
-      <div class="col-lg-7" data-aos="fade-left">
-        <div class="bg-white rounded-4 p-3 p-lg-4 border">
-          <iframe
-            src="https://docs.google.com/forms/d/e/1FAIpQLScgWAnUOeSzB9LisbYy62CDWNtlzGAeOI8gZvMqNue9JTsemg/viewform?embedded=true"
-            width="100%"
-            height="760"
-            frameborder="0"
-            marginheight="0"
-            marginwidth="0"
-            style="border:0; border-radius: 12px;"
-            title="Contact Andrew De La Vara">
-            Loading…
-          </iframe>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-  <!-- Footer -->
-  <footer class="py-5 bg-dark-custom rounded-4 m-3 m-lg-4" data-aos="clip-bottom">
-    <div class="container">
-      <div class="row mb-5">
-        <div class="col-md-4">
-          <div class="text-light-custom content-title fw-bold" data-aos="fade-right" data-aos-duration="1000">
-            Andrew De La Vara
-          </div>
-          <p class="text-light-custom mb-4">
-            Mechanical Engineering portfolio: CAD, prototyping, testing, and project documentation.
-          </p>
-          <div class="d-flex flex-wrap gap-3">
-            <a href="https://linkedin.com/in/andrewdelavara" aria-label="LinkedIn" target="_blank" rel="noopener">
-              <i class="fab fa-linkedin social-icon text-light-custom"></i>
-            </a>
-            <!-- Add your GitHub link when ready -->
-            <a href="#" aria-label="GitHub">
-              <i class="fab fa-github social-icon text-light-custom"></i>
-            </a>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <ul class="list-unstyled">
-            <li class="mb-2"><a href="#top" class="footer-link text-yellow">Home</a></li>
-            <li class="mb-2"><a href="#about" class="footer-link">About</a></li>
-            <li class="mb-2"><a href="#experience" class="footer-link">Experience</a></li>
-            <li class="mb-2"><a href="#education" class="footer-link">Education</a></li>
-            <li class="mb-2"><a href="#projects" class="footer-link">Projects</a></li>
-            <li class="mb-2"><a href="#solidworks" class="footer-link">SolidWorks</a></li>
-            <li class="mb-2"><a href="#resume" class="footer-link">Resume</a></li>
-            <li class="mb-2"><a href="#contact" class="footer-link">Contact</a></li>
-          </ul>
-        </div>
-
-        <div class="col-md-5">
-          <p class="text-light-custom mb-4">
-            For internships, collaboration, or project questions, please reach out.
-          </p>
-          <p class="text-light-custom fst-italic fs-5 mb-0">
-            <a href="mailto:Andrewdelavara571@gmail.com" class="text-light-custom text-decoration-none">
-              Andrewdelavara571@gmail.com
-            </a>
-          </p>
-        </div>
-      </div>
-
-      <div class="border-top border-light pt-4">
-        <p class="text-light-custom text-center mb-0">
-          ©2025 Andrew De La Vara. Built with a modified template.
-        </p>
-      </div>
-    </div>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      
-      // 1. Initialize Animations
-      if (window.AOS) {
-        AOS.init({ once: true, duration: 800 });
-      }
-
-      // 2. Initialize Service Slider
-      if (document.querySelector(".servicesSwiper")) {
-        new Swiper(".servicesSwiper", {
-          loop: true,
-          autoplay: { delay: 3000 },
-          pagination: { el: ".swiper-pagination", clickable: true },
-        });
-      }
-
-      // 3. Initialize Project Slider
-      if (document.querySelector(".worksSwiper")) {
-        new Swiper(".worksSwiper", {
-          slidesPerView: 1,
-          spaceBetween: 30,
-          loop: false, 
-          navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
-          breakpoints: {
-            768: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 }
-          }
-        });
-      }
-      
-      // 4. Ensure links inside the menu close the menu when clicked
-      var menuLinks = document.querySelectorAll('.menu-link');
-      menuLinks.forEach(function(link) {
-        link.addEventListener('click', closeFullscreenMenu);
-      });
-    });
-  </script>
-</body>
-</html>
-```
-
-
-
-
-
-
-
+        <div class="col-lg-7" data-aos="fade-
