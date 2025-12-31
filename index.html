@@ -22,19 +22,33 @@
 
     /* --- FIXES FOR HEADER VISUALS --- */
 
-    /* FIX 1: Reduce font size of background text to fit screen */
-    /* Using !important to override external stylesheet */
+    /* FIX 1: Header Text Sizing & Positioning */
+    /* Scales text to fit width and ensures it behaves as a block element (not background) */
     .hero-title {
-        font-size: 8.5vw !important; /* Scales text relative to viewport width so it fits */
-        line-height: 0.9 !important; /* Tighter line spacing */
+        font-size: 8.5vw !important; 
+        line-height: 0.9 !important;
+        position: relative !important; 
+        z-index: 1;
+        margin-bottom: 0 !important;
     }
 
-    /* FIX 2: Force vertical and horizontal centering for the Resume button */
+    /* FIX 2: Move Information BELOW the Name */
+    /* This forces the content container to sit under the text instead of overlapping it */
+    .banner-content {
+        position: relative !important;
+        margin-top: 2rem !important; /* Space between Name and Info */
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        width: 100% !important;
+        padding-bottom: 2rem;
+    }
+
+    /* FIX 3: Force vertical and horizontal centering for the Resume button */
     .banner-content .btn-outline-warning.rounded-pill {
         display: inline-flex !important;
         justify-content: center !important;
         align-items: center !important;
-        /* Ensure no padding throws off center if width/height are fixed in style.css */
         padding-top: 0 !important;
         padding-bottom: 0 !important;
     }
