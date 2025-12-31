@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=0.6" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Andrew De La Vara | Portfolio</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -17,9 +17,27 @@
     /* Global Smooth Scroll */
     html { scroll-behavior: smooth; }
     
-    /* VISIBILITY FAILSAFE:
-       Ensures content is visible even if AOS animation library fails to load. */
+    /* VISIBILITY FAILSAFE */
     [data-aos] { opacity: 1 !important; transform: none !important; }
+
+    /* --- FIXES FOR HEADER VISUALS --- */
+
+    /* FIX 1: Reduce font size of background text to fit screen */
+    /* Using !important to override external stylesheet */
+    .hero-title {
+        font-size: 8.5vw !important; /* Scales text relative to viewport width so it fits */
+        line-height: 0.9 !important; /* Tighter line spacing */
+    }
+
+    /* FIX 2: Force vertical and horizontal centering for the Resume button */
+    .banner-content .btn-outline-warning.rounded-pill {
+        display: inline-flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        /* Ensure no padding throws off center if width/height are fixed in style.css */
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
   </style>
 </head>
 
@@ -44,9 +62,9 @@
         <div class="text-light-custom content-title fw-bold" data-aos="fade-right" data-aos-duration="1000">
           ADLV
         </div>
-        </nav>
+      </nav>
 
-      <div class="w-100 text-center">
+      <div class="w-100 text-center overflow-hidden">
         <div class="syne-font hero-title text-yellow" data-aos="fade-up">ANDREW</div>
         <div class="syne-font hero-title hero-bg-text" data-aos="fade-up" data-aos-delay="175">DE LA VARA</div>
       </div>
