@@ -660,59 +660,81 @@
     </div>
   </footer>
 
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap JS Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
+  <!-- Optional Swiper JS (CDN) so sliders work even if local template JS files are missing -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+  <!-- AOS JS (THIS FIXES "BLANK PAGE" WHEN data-aos ELEMENTS STAY HIDDEN) -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
   <script>
+    // Initialize AOS safely
     if (window.AOS) {
       AOS.init({ once: true, duration: 800, offset: 120 });
     }
-  </script>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Get the elements by their ID
+    // Minimal menu open/close (works even if template js/script.js is missing)
+    (function () {
+      const menu = document.getElementById('fullscreenMenu');
       const openBtn = document.getElementById('menuOpenBtn');
       const closeBtn = document.getElementById('closeMenuBtn');
-      const menuOverlay = document.getElementById('fullscreenMenu');
-      const menuLinks = document.querySelectorAll('.menu-link');
 
-      // 1. Open Menu
-      if (openBtn) {
-        openBtn.addEventListener('click', function() {
-          menuOverlay.classList.add('is-open');
-        });
-      } else {
-        console.error("Could not find button with ID: menuOpenBtn");
-      }
+      function openMenu() { if (menu) menu.classList.add('is-open'); }
+      function closeMenu() { if (menu) menu.classList.remove('is-open'); }
 
-      // 2. Close Menu (X button)
-      if (closeBtn) {
-        closeBtn.addEventListener('click', function() {
-          menuOverlay.classList.remove('is-open');
-        });
-      }
+      if (openBtn) openBtn.addEventListener('click', openMenu);
+      if (closeBtn) closeBtn.addEventListener('click', closeMenu);
 
-      // 3. Close Menu (When clicking a link)
-      menuLinks.forEach(function(link) {
-        link.addEventListener('click', function() {
-          menuOverlay.classList.remove('is-open');
-        });
+      // Close menu when a link is clicked
+      document.querySelectorAll('#fullscreenMenu a.menu-link').forEach(a => {
+        a.addEventListener('click', closeMenu);
       });
 
-      // 4. Close Menu (Escape Key)
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-          menuOverlay.classList.remove('is-open');
+      // ESC to close
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeMenu();
+      });
+    })();
+
+    // Minimal Swiper init (so content is visible and carousels work)
+    (function () {
+      if (!window.Swiper) return;
+
+      new Swiper('.servicesSwiper', {
+        loop: true,
+        pagination: { el: '.servicesSwiper .swiper-pagination', clickable: true },
+        autoplay: { delay: 4500, disableOnInteraction: false }
+      });
+
+      new Swiper('.worksSwiper', {
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 20,
+        pagination: { el: '.worksSwiper .swiper-pagination', clickable: true },
+        navigation: {
+          nextEl: '.worksSwiper .swiper-button-next',
+          prevEl: '.worksSwiper .swiper-button-prev'
+        },
+        breakpoints: {
+          768: { slidesPerView: 2 },
+          1200: { slidesPerView: 3 }
         }
       });
-    });
+    })();
   </script>
+
+  <!-- If you still have these template files and want them, you can keep them.
+       If they do NOT exist in your repo, remove them to avoid 404s in the console. -->
+  <!--
+  <script src="js/jquery-1.11.0.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/script.js"></script>
+  -->
 
 </body>
 </html>
 ```
+
 
