@@ -26,12 +26,54 @@
        This ensures content is visible even if AOS fails to initialize. -->
   <style>
     html { scroll-behavior: smooth; }
+    
+    /* Ensure animations work */
     [data-aos] { opacity: 1 !important; transform: none !important; }
 
-    /* If your template relies on overlay visibility classes and script.js is missing,
-       this provides a minimal functional fullscreen menu behavior. */
-    .fullscreen-menu-overlay { display: none; }
-    .fullscreen-menu-overlay.is-open { display: block; }
+    /* --- FIXED MENU CSS --- */
+    .fullscreen-menu-overlay {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stays in place when scrolling */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(18, 18, 18, 0.98); /* Dark background */
+      z-index: 9999; /* Sit on top of EVERYTHING */
+      overflow-y: auto; /* Allow scrolling inside menu if needed */
+      padding-top: 20px;
+    }
+
+    /* JavaScript toggles this class to show the menu */
+    .fullscreen-menu-overlay.is-open {
+      display: block !important;
+    }
+
+    /* Menu Link Styling */
+    .menu-link {
+      color: #fff;
+      font-size: 2rem;
+      text-decoration: none;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      line-height: 1.5;
+      transition: color 0.3s ease;
+    }
+    .menu-link:hover {
+      color: #ffc107; /* Yellow hover effect */
+    }
+    
+    .close-menu-btn {
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .close-menu-btn:hover {
+      transform: rotate(90deg);
+      color: #ffc107;
+    }
   </style>
 </head>
 
@@ -499,9 +541,11 @@
             </div>
 
             <!-- Add your PDF later at: assets/docs/resume.pdf -->
-            <a class="btn btn-outline-warning rounded-pill"
-               href="assets/docs/resume.pdf" target="_blank" rel="noopener">
-              Open Resume (PDF)
+           <a class="btn btn-outline-warning rounded-pill"
+               href="resume.pdf" 
+               target="_blank" 
+               rel="noopener">
+               Open Resume (PDF)
             </a>
 
             <div class="text-muted small mt-3">
@@ -692,37 +736,3 @@
 </body>
 </html>
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
