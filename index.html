@@ -127,6 +127,27 @@
       cursor: pointer;
     }
   </style>
+
+  <script>
+    function openFullscreenMenu() {
+      console.log("Attempting to open menu...");
+      var menu = document.getElementById("fullscreenMenu");
+      if (menu) {
+        // We use inline styles to override everything else immediately
+        menu.style.cssText = "display: flex !important; visibility: visible !important; opacity: 1 !important; z-index: 999999 !important; position: fixed !important; top: 0; left: 0; width: 100%; height: 100vh; background-color: rgba(18,18,18,0.98);";
+        console.log("Menu Opened.");
+      } else {
+        alert("Error: Menu element 'fullscreenMenu' not found.");
+      }
+    }
+
+    function closeFullscreenMenu() {
+      var menu = document.getElementById("fullscreenMenu");
+      if (menu) {
+        menu.style.display = "none";
+      }
+    }
+  </script>
 </head>
 
 <body>
@@ -231,7 +252,7 @@
                     <span>View Projects</span>
                     <i class="fas fa-arrow-right"></i>
                   </a>
-                  <a href="#resume" class="btn btn-outline-warning rounded-pill">
+                  <a href="#resume" class="btn btn-outline-warning rounded-pill align-items-center gap-2">
                     Resume
                   </a>
                 </div>
@@ -716,74 +737,47 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
   <script>
-    /* --- 1. PRIORITY MENU FUNCTIONS --- */
-    function openFullscreenMenu() {
-      const menu = document.getElementById('fullscreenMenu');
-      if (menu) {
-        // Force styles using "important" to override any CSS conflicts
-        menu.style.setProperty("display", "flex", "important"); // Changed to Flex to ensure centering
-        menu.style.setProperty("visibility", "visible", "important");
-        menu.style.setProperty("opacity", "1", "important");
-        menu.style.setProperty("z-index", "999999999", "important"); // Maximum Z-Index
-        menu.style.setProperty("position", "fixed", "important");
-        menu.style.setProperty("top", "0", "important");
-        menu.style.setProperty("left", "0", "important");
-        menu.style.setProperty("width", "100%", "important");
-        menu.style.setProperty("height", "100vh", "important");
-        menu.style.setProperty("background-color", "rgba(18, 18, 18, 0.98)", "important");
-      } else {
-        console.error("Menu element not found!");
-      }
-    }
-
-    function closeFullscreenMenu() {
-      const menu = document.getElementById('fullscreenMenu');
-      if (menu) {
-        // Hide the menu
-        menu.style.setProperty("display", "none", "important");
-      }
-    }
-
-    /* --- 2. INITIALIZATION (Sliders & Animations) --- */
     document.addEventListener('DOMContentLoaded', function() {
       
-      // Initialize Animations
-      if (window.AOS) AOS.init({ once: true, duration: 800 });
+      // 1. Initialize Animations
+      if (window.AOS) {
+        AOS.init({ once: true, duration: 800 });
+      }
 
-      // Initialize Hero/Services Slider
-      new Swiper(".servicesSwiper", {
-        loop: true,
-        autoplay: { delay: 3000 },
-        pagination: { el: ".swiper-pagination", clickable: true },
-      });
+      // 2. Initialize Service Slider
+      if (document.querySelector(".servicesSwiper")) {
+        new Swiper(".servicesSwiper", {
+          loop: true,
+          autoplay: { delay: 3000 },
+          pagination: { el: ".swiper-pagination", clickable: true },
+        });
+      }
 
-      // Initialize Project Slider
-      new Swiper(".worksSwiper", {
-        slidesPerView: 1,
-        spaceBetween: 30,
-        loop: false, 
-        navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
-        breakpoints: {
-          768: { slidesPerView: 2 },
-          1024: { slidesPerView: 3 }
-        }
-      });
-
-      // Close menu when clicking ANY link inside the menu
-      const menuLinks = document.querySelectorAll('.menu-link');
-      menuLinks.forEach(link => {
+      // 3. Initialize Project Slider
+      if (document.querySelector(".worksSwiper")) {
+        new Swiper(".worksSwiper", {
+          slidesPerView: 1,
+          spaceBetween: 30,
+          loop: false, 
+          navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+          breakpoints: {
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 }
+          }
+        });
+      }
+      
+      // 4. Ensure links inside the menu close the menu when clicked
+      var menuLinks = document.querySelectorAll('.menu-link');
+      menuLinks.forEach(function(link) {
         link.addEventListener('click', closeFullscreenMenu);
-      });
-
-      // Close menu with Escape key
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeFullscreenMenu();
       });
     });
   </script>
 </body>
 </html>
 ```
+
 
 
 
