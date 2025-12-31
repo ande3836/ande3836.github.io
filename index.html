@@ -152,8 +152,8 @@
     <div class="container h-100">
       <div class="row h-100 align-items-center">
         <div class="col-lg-7 position-relative">
-          <button id="closeMenuBtn" class="close-menu-btn position-absolute top-0 end-0 m-4">
-            <i class="fas fa-times fs-1"></i>
+          <button onclick="closeFullscreenMenu()" id="closeMenuBtn" class="close-menu-btn position-absolute top-0 end-0 m-4">
+              <i class="fas fa-times fs-1"></i>
           </button>
 
           <nav class="fullscreen-menu-nav">
@@ -201,8 +201,7 @@
           ADLV
         </div>
 
-        <button id="menuOpenBtn" class="menu-toggle-btn btn d-flex align-items-center gap-2" data-aos="fade-left"
-          data-aos-duration="1000" type="button">
+        <button onclick="openFullscreenMenu()" id="menuOpenBtn" class="menu-toggle-btn btn d-flex align-items-center gap-2" data-aos="fade-left" data-aos-duration="1000" type="button">
           <span class="text-light-custom fw-bold">MENU</span>
           <i class="fas fa-bars text-light-custom"></i>
         </button>
@@ -712,97 +711,79 @@
     </div>
   </footer>
 
-  <!-- Bootstrap JS Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Optional Swiper JS (CDN) so sliders work even if local template JS files are missing -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-  <!-- AOS JS (THIS FIXES "BLANK PAGE" WHEN data-aos ELEMENTS STAY HIDDEN) -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
   <script>
-    // Initialize AOS safely
-    if (window.AOS) {
-      AOS.init({ once: true, duration: 800, offset: 120 });
+    /* --- 1. GLOBAL MENU FUNCTIONS (Must be here so buttons can find them) --- */
+    function openFullscreenMenu() {
+      const menu = document.getElementById('fullscreenMenu');
+      if (menu) {
+        menu.classList.add('is-open');
+        menu.style.display = 'flex'; // Force visibility
+      }
     }
 
-   /* --- MENU SCRIPT FIX --- */
+    function closeFullscreenMenu() {
+      const menu = document.getElementById('fullscreenMenu');
+      if (menu) {
+        menu.classList.remove('is-open');
+        menu.style.display = 'none'; // Force hide
+      }
+    }
+
+    /* --- 2. INITIALIZE ON PAGE LOAD --- */
     document.addEventListener('DOMContentLoaded', function() {
-       const menu = document.getElementById('fullscreenMenu');
-       const openBtn = document.getElementById('menuOpenBtn');
-       const closeBtn = document.getElementById('closeMenuBtn');
-       const menuLinks = document.querySelectorAll('.menu-link');
+      
+      // Initialize Animations
+      if (window.AOS) {
+        AOS.init({ once: true, duration: 800, offset: 120 });
+      }
 
-       // Function to open menu
-       function openMenu() {
-          if(menu) {
-             menu.classList.add('is-open'); // Adds the CSS class
-             menu.style.display = 'flex';   // Force visibility just in case
-          }
-       }
-
-       // Function to close menu
-       function closeMenu() {
-          if(menu) {
-             menu.classList.remove('is-open');
-             menu.style.display = 'none';   // Force hide
-          }
-       }
-
-       // Add Click Events
-       if (openBtn) openBtn.addEventListener('click', openMenu);
-       if (closeBtn) closeBtn.addEventListener('click', closeMenu);
-
-       // Close menu when clicking any link in the list
-       menuLinks.forEach(link => {
-          link.addEventListener('click', closeMenu);
-       });
-
-       // Close on Escape key
-       document.addEventListener('keydown', (e) => {
-          if (e.key === 'Escape') closeMenu();
-       });
-    });
-
-    // Minimal Swiper init (so content is visible and carousels work)
-    (function () {
-      if (!window.Swiper) return;
-
-      new Swiper('.servicesSwiper', {
+      // Initialize Hero Slider
+      new Swiper(".servicesSwiper", {
         loop: true,
-        pagination: { el: '.servicesSwiper .swiper-pagination', clickable: true },
-        autoplay: { delay: 4500, disableOnInteraction: false }
+        autoplay: { delay: 3000, disableOnInteraction: false },
+        pagination: { el: ".swiper-pagination", clickable: true },
       });
 
-      new Swiper('.worksSwiper', {
-        loop: true,
+      // Initialize Project Slider (Fixed Loop Warning)
+      new Swiper(".worksSwiper", {
         slidesPerView: 1,
-        spaceBetween: 20,
-        pagination: { el: '.worksSwiper .swiper-pagination', clickable: true },
+        spaceBetween: 30,
+        loop: false, // Disabled loop to fix console warning since you have few slides
         navigation: {
-          nextEl: '.worksSwiper .swiper-button-next',
-          prevEl: '.worksSwiper .swiper-button-prev'
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
         },
         breakpoints: {
           768: { slidesPerView: 2 },
-          1200: { slidesPerView: 3 }
+          1024: { slidesPerView: 3 }
         }
       });
-    })();
-  </script>
 
-  <!-- If you still have these template files and want them, you can keep them.
-       If they do NOT exist in your repo, remove them to avoid 404s in the console. -->
-  <!--
-  <script src="js/jquery-1.11.0.min.js"></script>
-  <script src="js/plugins.js"></script>
-  <script src="js/script.js"></script>
-  -->
+      // Close menu when clicking any link inside it
+      const menuLinks = document.querySelectorAll('.menu-link');
+      menuLinks.forEach(link => {
+        link.addEventListener('click', closeFullscreenMenu);
+      });
+
+      // Close menu with Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeFullscreenMenu();
+      });
+    });
+  </script>
 
 </body>
 </html>
 ```
+
 
 
 
