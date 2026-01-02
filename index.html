@@ -334,11 +334,16 @@
  <section id="solidworks" class="py-5 my-5 bg-light-alt rounded-5 m-4" data-aos="clip-bottom">
     <div class="container">
       
+      <style>
+        .zoom-card { cursor: pointer; transition: transform 0.2s ease; }
+        .zoom-card:hover { transform: scale(1.02); }
+      </style>
+
       <div class="row justify-content-center mb-5">
         <div class="col-lg-8 text-center" data-aos="fade-up">
           <h2 class="content-title fw-bold mb-3">SolidWorks & Technical Drawings</h2>
           <p class="text-muted">
-            A collection of parametric models, sheet metal designs, and technical documentation illustrating design intent and manufacturability.
+            Click any image below to view the full-screen detailed render.
           </p>
         </div>
       </div>
@@ -346,37 +351,37 @@
       <div class="row g-4">
         
         <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="card border-0 shadow-sm h-100 rounded-4 overflow-hidden">
+          <div class="card border-0 shadow-sm h-100 rounded-4 overflow-hidden zoom-card" data-bs-toggle="modal" data-bs-target="#modalSW1">
             <div style="height: 300px; overflow: hidden;">
-              <img src="air%20track%20end%20cap.png" 
+              <img src="air%20track%20end%20cap.jpg" 
                    class="card-img-top w-100 h-100" 
                    alt="Air Track End Cap"
                    style="object-fit: cover; object-position: center;">
             </div>
             <div class="card-body bg-white p-4">
-              <h5 class="card-title fw-bold">Air Track End Cap</h5>
+              <h5 class="card-title fw-bold">Air Track End Cap <i class="fas fa-expand-alt small text-muted ms-2"></i></h5>
               <p class="card-text text-muted small mb-0">3D Render & Design Intent</p>
             </div>
           </div>
         </div>
 
         <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
-          <div class="card border-0 shadow-sm h-100 rounded-4 overflow-hidden">
+          <div class="card border-0 shadow-sm h-100 rounded-4 overflow-hidden zoom-card" data-bs-toggle="modal" data-bs-target="#modalSW2">
             <div style="height: 300px; overflow: hidden;">
-              <img src="Rack%20Image.png" 
+              <img src="Rack%20Image.jpg" 
                    class="card-img-top w-100 h-100" 
                    alt="Rack Assembly"
                    style="object-fit: cover; object-position: center;">
             </div>
             <div class="card-body bg-white p-4">
-              <h5 class="card-title fw-bold">Mechanical Rack Assembly</h5>
+              <h5 class="card-title fw-bold">Mechanical Rack Assembly <i class="fas fa-expand-alt small text-muted ms-2"></i></h5>
               <p class="card-text text-muted small mb-0">Multi-part Assembly Modeling</p>
             </div>
           </div>
         </div>
 
         <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
-          <div class="card border-0 shadow-sm h-100 rounded-4 overflow-hidden">
+          <div class="card border-0 shadow-sm h-100 rounded-4 overflow-hidden zoom-card" data-bs-toggle="modal" data-bs-target="#modalSW3">
             <div style="height: 300px; overflow: hidden;">
               <img src="angle%20bracket%20raft%20cup%20holder%20drawing.jpg" 
                    class="card-img-top w-100 h-100" 
@@ -384,14 +389,14 @@
                    style="object-fit: cover; object-position: top;">
             </div>
             <div class="card-body bg-white p-4">
-              <h5 class="card-title fw-bold">Angle Bracket & Cup Holder</h5>
+              <h5 class="card-title fw-bold">Angle Bracket & Cup Holder <i class="fas fa-expand-alt small text-muted ms-2"></i></h5>
               <p class="card-text text-muted small mb-0">Technical Drawing & GD&T</p>
             </div>
           </div>
         </div>
 
         <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
-          <div class="card border-0 shadow-sm h-100 rounded-4 overflow-hidden">
+          <div class="card border-0 shadow-sm h-100 rounded-4 overflow-hidden zoom-card" data-bs-toggle="modal" data-bs-target="#modalSW4">
             <div style="height: 300px; overflow: hidden;">
               <img src="sheet%20metal%20drawing.jpg" 
                    class="card-img-top w-100 h-100" 
@@ -399,13 +404,63 @@
                    style="object-fit: cover; object-position: top;">
             </div>
             <div class="card-body bg-white p-4">
-              <h5 class="card-title fw-bold">Sheet Metal Fabrication</h5>
+              <h5 class="card-title fw-bold">Sheet Metal Fabrication <i class="fas fa-expand-alt small text-muted ms-2"></i></h5>
               <p class="card-text text-muted small mb-0">Flat Patterns & Bend Tables</p>
             </div>
           </div>
         </div>
 
+      </div> <div class="modal fade" id="modalSW1" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+          <div class="modal-content bg-black"> <div class="modal-header border-0">
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex align-items-center justify-content-center">
+              <img src="air%20track%20end%20cap.png" class="img-fluid" style="max-height: 90vh;" alt="Full View">
+            </div>
+          </div>
+        </div>
       </div>
+
+      <div class="modal fade" id="modalSW2" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+          <div class="modal-content bg-black">
+            <div class="modal-header border-0">
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex align-items-center justify-content-center">
+              <img src="Rack%20Image.png" class="img-fluid" style="max-height: 90vh;" alt="Full View">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="modalSW3" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+          <div class="modal-content bg-black">
+            <div class="modal-header border-0">
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex align-items-center justify-content-center">
+              <img src="angle%20bracket%20raft%20cup%20holder%20drawing.jpg" class="img-fluid" style="max-height: 90vh;" alt="Full View">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="modalSW4" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+          <div class="modal-content bg-black">
+            <div class="modal-header border-0">
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex align-items-center justify-content-center">
+              <img src="sheet%20metal%20drawing.jpg" class="img-fluid" style="max-height: 90vh;" alt="Full View">
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -565,5 +620,6 @@
 
 </body>
 </html>
+
 
 
