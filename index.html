@@ -337,25 +337,11 @@
       <style>
         .zoom-card { cursor: pointer; transition: transform 0.2s ease; }
         .zoom-card:hover { transform: scale(1.02); }
-        /* Fix for the minimize button */
-        .floating-close-btn {
-          position: absolute;
-          top: 20px;
-          right: 20px;
-          z-index: 9999; /* Ensures it stays on top of the image */
-          opacity: 0.9;
-        }
-        .floating-close-btn:hover {
-          opacity: 1;
-        }
       </style>
 
       <div class="row justify-content-center mb-5">
         <div class="col-lg-8 text-center" data-aos="fade-up">
           <h2 class="content-title fw-bold mb-3">SolidWorks & Technical Drawings</h2>
-          <p class="text-muted">
-            Click any image below to view the full-screen detailed render.
-          </p>
         </div>
       </div>
 
@@ -421,63 +407,7 @@
           </div>
         </div>
 
-      </div> <div class="modal fade" id="modalSW1" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-fullscreen">
-          <div class="modal-content bg-black position-relative">
-            <button type="button" class="btn btn-light rounded-pill shadow floating-close-btn px-4 fw-bold" data-bs-dismiss="modal">
-              <i class="fas fa-compress-alt me-2"></i>Minimize
-            </button>
-            
-            <div class="modal-body d-flex align-items-center justify-content-center p-0 w-100 h-100">
-              <img src="air%20track%20end%20cap.jpg" class="img-fluid" style="max-height: 100vh; max-width: 100%; object-fit: contain;" alt="Full View">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="modal fade" id="modalSW2" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-fullscreen">
-          <div class="modal-content bg-black position-relative">
-            <button type="button" class="btn btn-light rounded-pill shadow floating-close-btn px-4 fw-bold" data-bs-dismiss="modal">
-               <i class="fas fa-compress-alt me-2"></i>Minimize
-            </button>
-            
-            <div class="modal-body d-flex align-items-center justify-content-center p-0 w-100 h-100">
-              <img src="Rack%20Image.jpg" class="img-fluid" style="max-height: 100vh; max-width: 100%; object-fit: contain;" alt="Full View">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="modal fade" id="modalSW3" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-fullscreen">
-          <div class="modal-content bg-black position-relative">
-            <button type="button" class="btn btn-light rounded-pill shadow floating-close-btn px-4 fw-bold" data-bs-dismiss="modal">
-               <i class="fas fa-compress-alt me-2"></i>Minimize
-            </button>
-            
-            <div class="modal-body d-flex align-items-center justify-content-center p-0 w-100 h-100">
-              <img src="angle%20bracket%20raft%20cup%20holder%20drawing.jpg" class="img-fluid" style="max-height: 100vh; max-width: 100%; object-fit: contain;" alt="Full View">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="modal fade" id="modalSW4" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-fullscreen">
-          <div class="modal-content bg-black position-relative">
-            <button type="button" class="btn btn-light rounded-pill shadow floating-close-btn px-4 fw-bold" data-bs-dismiss="modal">
-               <i class="fas fa-compress-alt me-2"></i>Minimize
-            </button>
-            
-            <div class="modal-body d-flex align-items-center justify-content-center p-0 w-100 h-100">
-              <img src="sheet%20metal%20drawing.jpg" class="img-fluid" style="max-height: 100vh; max-width: 100%; object-fit: contain;" alt="Full View">
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
+      </div> </div>
   </section>
   
   <section id="resume" class="py-5 my-5 position-relative" data-aos="fade-up">
@@ -633,8 +563,78 @@
     });
   </script>
 
+  <style>
+    /* Ensures the button stays on top and is clickable */
+    .floating-close-btn {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      z-index: 1055; /* Bootstrap modals use 1050, this puts button above them */
+      opacity: 0.9;
+      cursor: pointer;
+      pointer-events: auto; /* Forces clickability */
+    }
+    .floating-close-btn:hover {
+      opacity: 1;
+      transform: scale(1.05);
+      transition: all 0.2s;
+    }
+  </style>
+
+  <div class="modal fade" id="modalSW1" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content bg-black position-relative">
+        <button type="button" class="btn btn-light rounded-pill shadow floating-close-btn px-4 fw-bold" data-bs-dismiss="modal">
+          <i class="fas fa-compress-alt me-2"></i>Minimize
+        </button>
+        <div class="modal-body d-flex align-items-center justify-content-center p-0 w-100 h-100">
+          <img src="air%20track%20end%20cap.jpg" class="img-fluid" style="max-height: 100vh; max-width: 100%; object-fit: contain;" alt="Full View">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalSW2" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content bg-black position-relative">
+        <button type="button" class="btn btn-light rounded-pill shadow floating-close-btn px-4 fw-bold" data-bs-dismiss="modal">
+           <i class="fas fa-compress-alt me-2"></i>Minimize
+        </button>
+        <div class="modal-body d-flex align-items-center justify-content-center p-0 w-100 h-100">
+          <img src="Rack%20Image.jpg" class="img-fluid" style="max-height: 100vh; max-width: 100%; object-fit: contain;" alt="Full View">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalSW3" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content bg-black position-relative">
+        <button type="button" class="btn btn-light rounded-pill shadow floating-close-btn px-4 fw-bold" data-bs-dismiss="modal">
+           <i class="fas fa-compress-alt me-2"></i>Minimize
+        </button>
+        <div class="modal-body d-flex align-items-center justify-content-center p-0 w-100 h-100">
+          <img src="angle%20bracket%20raft%20cup%20holder%20drawing.jpg" class="img-fluid" style="max-height: 100vh; max-width: 100%; object-fit: contain;" alt="Full View">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalSW4" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content bg-black position-relative">
+        <button type="button" class="btn btn-light rounded-pill shadow floating-close-btn px-4 fw-bold" data-bs-dismiss="modal">
+           <i class="fas fa-compress-alt me-2"></i>Minimize
+        </button>
+        <div class="modal-body d-flex align-items-center justify-content-center p-0 w-100 h-100">
+          <img src="sheet%20metal%20drawing.jpg" class="img-fluid" style="max-height: 100vh; max-width: 100%; object-fit: contain;" alt="Full View">
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
+
 
 
 
