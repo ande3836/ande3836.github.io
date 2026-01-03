@@ -337,6 +337,17 @@
       <style>
         .zoom-card { cursor: pointer; transition: transform 0.2s ease; }
         .zoom-card:hover { transform: scale(1.02); }
+        /* Fix for the minimize button */
+        .floating-close-btn {
+          position: absolute;
+          top: 20px;
+          right: 20px;
+          z-index: 9999; /* Ensures it stays on top of the image */
+          opacity: 0.9;
+        }
+        .floating-close-btn:hover {
+          opacity: 1;
+        }
       </style>
 
       <div class="row justify-content-center mb-5">
@@ -412,15 +423,13 @@
 
       </div> <div class="modal fade" id="modalSW1" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-fullscreen">
-          <div class="modal-content bg-black">
-            <div class="modal-header border-0 bg-black p-4">
-              <div class="text-white-50">Air Track End Cap</div>
-              <button type="button" class="btn btn-outline-light rounded-pill px-4" data-bs-dismiss="modal">
-                <i class="fas fa-compress-alt me-2"></i>Minimize
-              </button>
-            </div>
-            <div class="modal-body d-flex align-items-center justify-content-center p-0">
-              <img src="air%20track%20end%20cap.jpg" class="img-fluid" style="max-height: 85vh;" alt="Full View">
+          <div class="modal-content bg-black position-relative">
+            <button type="button" class="btn btn-light rounded-pill shadow floating-close-btn px-4 fw-bold" data-bs-dismiss="modal">
+              <i class="fas fa-compress-alt me-2"></i>Minimize
+            </button>
+            
+            <div class="modal-body d-flex align-items-center justify-content-center p-0 w-100 h-100">
+              <img src="air%20track%20end%20cap.jpg" class="img-fluid" style="max-height: 100vh; max-width: 100%; object-fit: contain;" alt="Full View">
             </div>
           </div>
         </div>
@@ -428,15 +437,13 @@
 
       <div class="modal fade" id="modalSW2" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-fullscreen">
-          <div class="modal-content bg-black">
-            <div class="modal-header border-0 bg-black p-4">
-               <div class="text-white-50">Mechanical Rack Assembly</div>
-               <button type="button" class="btn btn-outline-light rounded-pill px-4" data-bs-dismiss="modal">
-                <i class="fas fa-compress-alt me-2"></i>Minimize
-              </button>
-            </div>
-            <div class="modal-body d-flex align-items-center justify-content-center p-0">
-              <img src="Rack%20Image.jpg" class="img-fluid" style="max-height: 85vh;" alt="Full View">
+          <div class="modal-content bg-black position-relative">
+            <button type="button" class="btn btn-light rounded-pill shadow floating-close-btn px-4 fw-bold" data-bs-dismiss="modal">
+               <i class="fas fa-compress-alt me-2"></i>Minimize
+            </button>
+            
+            <div class="modal-body d-flex align-items-center justify-content-center p-0 w-100 h-100">
+              <img src="Rack%20Image.jpg" class="img-fluid" style="max-height: 100vh; max-width: 100%; object-fit: contain;" alt="Full View">
             </div>
           </div>
         </div>
@@ -444,15 +451,13 @@
 
       <div class="modal fade" id="modalSW3" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-fullscreen">
-          <div class="modal-content bg-black">
-            <div class="modal-header border-0 bg-black p-4">
-               <div class="text-white-50">Angle Bracket Drawing</div>
-               <button type="button" class="btn btn-outline-light rounded-pill px-4" data-bs-dismiss="modal">
-                <i class="fas fa-compress-alt me-2"></i>Minimize
-              </button>
-            </div>
-            <div class="modal-body d-flex align-items-center justify-content-center p-0">
-              <img src="angle%20bracket%20raft%20cup%20holder%20drawing.jpg" class="img-fluid" style="max-height: 85vh;" alt="Full View">
+          <div class="modal-content bg-black position-relative">
+            <button type="button" class="btn btn-light rounded-pill shadow floating-close-btn px-4 fw-bold" data-bs-dismiss="modal">
+               <i class="fas fa-compress-alt me-2"></i>Minimize
+            </button>
+            
+            <div class="modal-body d-flex align-items-center justify-content-center p-0 w-100 h-100">
+              <img src="angle%20bracket%20raft%20cup%20holder%20drawing.jpg" class="img-fluid" style="max-height: 100vh; max-width: 100%; object-fit: contain;" alt="Full View">
             </div>
           </div>
         </div>
@@ -460,15 +465,13 @@
 
       <div class="modal fade" id="modalSW4" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-fullscreen">
-          <div class="modal-content bg-black">
-            <div class="modal-header border-0 bg-black p-4">
-               <div class="text-white-50">Sheet Metal Drawing</div>
-               <button type="button" class="btn btn-outline-light rounded-pill px-4" data-bs-dismiss="modal">
-                <i class="fas fa-compress-alt me-2"></i>Minimize
-              </button>
-            </div>
-            <div class="modal-body d-flex align-items-center justify-content-center p-0">
-              <img src="sheet%20metal%20drawing.jpg" class="img-fluid" style="max-height: 85vh;" alt="Full View">
+          <div class="modal-content bg-black position-relative">
+            <button type="button" class="btn btn-light rounded-pill shadow floating-close-btn px-4 fw-bold" data-bs-dismiss="modal">
+               <i class="fas fa-compress-alt me-2"></i>Minimize
+            </button>
+            
+            <div class="modal-body d-flex align-items-center justify-content-center p-0 w-100 h-100">
+              <img src="sheet%20metal%20drawing.jpg" class="img-fluid" style="max-height: 100vh; max-width: 100%; object-fit: contain;" alt="Full View">
             </div>
           </div>
         </div>
@@ -632,6 +635,7 @@
 
 </body>
 </html>
+
 
 
 
