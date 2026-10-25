@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{TITLE}} | Andrew De La Vara</title>
+  <meta name="description" content="{{META_DESCRIPTION}}" />
+  <link rel="canonical" href="https://ande3836.github.io/{{SLUG}}.html" />
+  <meta name="theme-color" content="#414c31" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Andrew De La Vara" />
+  <meta property="og:title" content="{{TITLE}} | Andrew De La Vara" />
+  <meta property="og:description" content="{{META_DESCRIPTION}}" />
+  <meta property="og:url" content="https://ande3836.github.io/{{SLUG}}.html" />
+  <meta property="og:image" content="https://ande3836.github.io/images/{{IMAGE}}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg py-4">
+    <div class="container">
+      <a href="index.html" class="btn btn-outline-dark rounded-pill">
+        <i class="fas fa-arrow-left me-2"></i> Back to Portfolio
+      </a>
+    </div>
+  </nav>
+
+  <header class="mb-5">
+    <div class="container text-center">
+      <div class="date-text mb-2">{{DATES_OR_CATEGORY}}</div>
+      <h1 class="display-4 fw-bold syne-font">{{TITLE}}</h1>
+      <p class="lead text-muted">{{SUBTITLE}}</p>
+    </div>
+  </header>
+
+  <section class="container mb-5">
+    <div class="row align-items-center g-4 g-lg-5">
+      <div class="col-lg-6">
+        <div class="rounded-4 overflow-hidden shadow-sm border">
+          <img src="images/{{IMAGE}}"
+               alt="{{IMAGE_ALT}}" 
+               class="img-fluid w-100" 
+               style="object-fit: cover; height: 100%;">
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <h3 class="fw-bold mb-3">Project Summary</h3>
+        <p>
+          {{SUMMARY_PARAGRAPH_1}}
+        </p>
+        <p>
+          {{SUMMARY_PARAGRAPH_2}}
+        </p>
+
+        <h5 class="fw-bold mt-4">Tools Used:</h5>
+        <!-- one badge per tool or skill -->
+        <span class="badge bg-secondary me-1">{{TOOL}}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPTIONAL document section: keep one block per PDF, delete the section if there are none.
+       PDF filenames may keep spaces; reference them with %20 in href/src. -->
+  <section class="container py-5 mb-5 bg-light-alt rounded-4">
+    <div class="row justify-content-center">
+      <div class="col-12 text-center mb-4">
+        <h3 class="fw-bold">{{DOCUMENT_HEADING}}</h3>
+      </div>
+      <div class="col-lg-10">
+        <div class="ratio ratio-16x9 border rounded-3 bg-white shadow-sm" style="min-height: 600px;">
+          <iframe src="{{PDF_FILE}}" title="{{DOCUMENT_HEADING}}"></iframe>
+        </div>
+        <div class="text-center mt-3">
+          <a href="{{PDF_FILE}}" class="btn btn-dark" target="_blank" download>
+            <i class="fas fa-file-pdf me-2"></i> Download {{DOCUMENT_HEADING}}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="py-4 text-center">
+    <div class="container">
+      <p class="text-muted small mb-0">© 2026 Andrew De La Vara</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

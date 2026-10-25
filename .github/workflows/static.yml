@@ -31,6 +31,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Check links
+        # Fails the deploy if any page links to a missing file or #anchor
+        run: python3 .claude/hooks/check_links.py
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact

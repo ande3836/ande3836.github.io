@@ -4,7 +4,19 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Andrew De La Vara | Portfolio</title>
+  <title>Andrew De La Vara | Mechanical Engineering Portfolio</title>
+  <meta name="description" content="Portfolio of Andrew De La Vara, mechanical engineering student at CU Boulder: SolidWorks design, prototyping, and project engineering on the Frisco Transit Center." />
+  <link rel="canonical" href="https://ande3836.github.io/" />
+  <meta name="theme-color" content="#414c31" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Andrew De La Vara" />
+  <meta property="og:title" content="Andrew De La Vara | Mechanical Engineering Portfolio" />
+  <meta property="og:description" content="Mechanical engineering student at CU Boulder: SolidWorks design, prototyping, and project engineering." />
+  <meta property="og:url" content="https://ande3836.github.io/" />
+  <meta property="og:image" content="https://ande3836.github.io/images/headshot.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Montserrat:wght@700;800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
@@ -12,76 +24,18 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="style.css">
-
-  <style>
-    /* Global Smooth Scroll */
-    html { scroll-behavior: smooth; }
-    
-    /* VISIBILITY FAILSAFE */
-    [data-aos] { opacity: 1 !important; transform: none !important; }
-
-    /* --- FIXES FOR HEADER VISUALS --- */
-
-    /* FIX 1: Header Text Sizing & Positioning */
-    /* Scales text to fit width and ensures it behaves as a block element (not background) */
-    .hero-title {
-        font-size: 8.5vw !important; 
-        line-height: 0.9 !important;
-        position: relative !important; 
-        z-index: 1;
-        margin-bottom: 0 !important;
-    }
-
-    /* Name font: clean, professional sans-serif */
-    .name-font {
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 800;
-        letter-spacing: 0.04em !important;
-    }
-
-    /* FIX 2: Move Information BELOW the Name */
-    /* This forces the content container to sit under the text instead of overlapping it */
-    .banner-content {
-        position: relative !important;
-        margin-top: 2rem !important; /* Space between Name and Info */
-        top: auto !important;
-        left: auto !important;
-        transform: none !important;
-        width: 100% !important;
-        padding-bottom: 2rem;
-    }
-
-    /* FIX 3: Force vertical and horizontal centering for the Resume button */
-    .banner-content .btn-outline-warning.rounded-pill {
-        display: inline-flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-        padding-top: 0 !important;
-        padding-bottom: 0 !important;
-    }
-  </style>
 </head>
 
 <body>
-
-  <svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
-    <symbol id="instagram" viewBox="0 0 15 15">
-      <path fill="none" stroke="currentColor" d="M11 3.5h1M4.5.5h6a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4h-6a4 4 0 0 1-4-4v-6a4 4 0 0 1 4-4Zm3 10a3 3 0 1 1 0-6a3 3 0 0 1 0 6Z" />
-    </symbol>
-    <symbol id="facebook" viewBox="0 0 15 15">
-      <path fill="none" stroke="currentColor" d="M7.5 14.5a7 7 0 1 1 0-14a7 7 0 0 1 0 14Zm0 0v-8a2 2 0 0 1 2-2h.5m-5 4h5" />
-    </symbol>
-    <symbol id="twitter" viewBox="0 0 15 15">
-      <path fill="currentColor" d="m14.478 1.5l.5-.033a.5.5 0 0 0-.871-.301l.371.334Zm-.498 2.959a.5.5 0 1 0-1 0h1Zm-6.49.082h-.5h.5Zm0 .959h.5h-.5Zm-6.99 7V12a.5.5 0 0 0-.278.916L.5 12.5Zm.998-11l.469-.175a.5.5 0 0 0-.916-.048l.447.223Zm3.994 9l.354.353a.5.5 0 0 0-.195-.827l-.159.474Zm7.224-8.027l-.37.336l.18.199l.265-.04l-.075-.495Zm1.264-.94c.051.778.003 1.25-.123 1.606c-.122.345-.336.629-.723 1l.692.722c.438-.42.776-.832.974-1.388c.193-.546.232-1.178.177-2.006l-.998.066Zm0 3.654V4.46h-1v.728h1Zm-6.99-.646V5.5h1v-.959h-1Zm0 .959V6h1v-.5h-1ZM10.525 1a3.539 3.539 0 0 0-3.537 3.541h1A2.539 2.539 0 0 1 10.526 2V1Zm2.454 4.187C12.98 9.503 9.487 13 5.18 13v1c4.86 0 8.8-3.946 8.8-8.813h-1ZM1.03 1.675C1.574 3.127 3.614 6 7.49 6V5C4.174 5 2.421 2.54 1.966 1.325l-.937.35Zm.021-.398C.004 3.373-.157 5.407.604 7.139c.759 1.727 2.392 3.055 4.73 3.835l.317-.948c-2.155-.72-3.518-1.892-4.132-3.29c-.612-1.393-.523-3.11.427-5.013l-.895-.446Zm4.087 8.87C4.536 10.75 2.726 12 .5 12v1c2.566 0 4.617-1.416 5.346-2.147l-.708-.706Zm7.949-8.009A3.445 3.445 0 0 0 10.526 1v1c.721 0 1.37.311 1.82.809l.74-.671Zm-.296.83a3.513 3.513 0 0 0 2.06-1.134l-.744-.668a2.514 2.514 0 0 1-1.466.813l.15.989ZM.222 12.916C1.863 14.01 3.583 14 5.18 14v-1c-1.63 0-3.048-.011-4.402-.916l-.556.832Z" />
-    </symbol>
-  </svg>
 
   <header id="top" class="position-relative">
     <div class="bg-dark-custom p-2 p-lg-5 m-3 m-lg-4 rounded-4">
 
       <div class="w-100 text-center overflow-hidden pt-4 pt-lg-2">
-        <div class="name-font hero-title text-yellow" data-aos="fade-up">ANDREW</div>
-        <div class="name-font hero-title text-yellow" data-aos="fade-up" data-aos-delay="175">DE LA VARA</div>
+        <h1 class="m-0">
+          <span class="hero-title text-yellow d-block" data-aos="fade-up">ANDREW</span>
+          <span class="hero-title text-yellow d-block" data-aos="fade-up" data-aos-delay="175">DE LA VARA</span>
+        </h1>
       </div>
       
       <div class="banner-content">
@@ -101,7 +55,7 @@
                     <span>View Projects</span>
                     <i class="fas fa-arrow-right"></i>
                   </a>
-                  <a href="#resume" class="btn btn-outline-warning rounded-pill">
+                  <a href="#resume" class="btn btn-custom btn-custom-outline">
                     Resume
                   </a>
                 </div>
@@ -150,7 +104,7 @@
       <div class="row g-lg-5 align-items-center">
 
         <div class="col-md-6" data-aos="clip-bottom" data-aos-duration="1000">
-          <img src="/headshot.jpeg" class="img-fluid rounded-4" alt="Andrew De La Vara headshot" style="width: 100%; height: 720px; object-fit: cover;" />
+          <img src="images/headshot.jpg" class="img-fluid rounded-4 about-photo" alt="Andrew De La Vara headshot" width="1028" height="1285" />
         </div>
 
         <div class="col-md-6" data-aos="clip-top" data-aos-delay="200">
@@ -280,7 +234,7 @@
               <div class="bg-light-alt rounded-top-4 d-flex align-items-center justify-content-center position-relative" style="height: 180px;">
                 <i class="fas fa-hard-hat fa-3x text-muted position-absolute"></i>
                 <a href="frisco-transit-center.html" class="position-relative" style="width: 100%; height: 100%;">
-                  <img src="/frisco%20transit%20center.jpg" class="img-fluid rounded-top-4" alt="Frisco Transit Center Headquarters" style="width: 100%; height: 180px; object-fit: cover; object-position: center 45%;" loading="lazy" onerror="this.remove()" />
+                  <img src="images/frisco-transit-center.jpg" class="img-fluid rounded-top-4" alt="Frisco Transit Center Headquarters" style="width: 100%; height: 180px; object-fit: cover; object-position: center 45%;" loading="lazy" onerror="this.remove()" />
                 </a>
               </div>
 
@@ -299,7 +253,7 @@
             <div class="card card-custom">
               <div class="bg-light-alt rounded-top-4 d-flex align-items-center justify-content-center" style="height: 180px;">
                 <a href="air-track.html" style="width: 100%; height: 100%;">
-                  <img src="/air%20track%20body%20assembly.jpg" class="img-fluid rounded-top-4" alt="air track assembly" style="width: 100%; height: 180px; object-fit: cover;" loading="lazy" />
+                  <img src="images/air-track-body-assembly.jpg" class="img-fluid rounded-top-4" alt="SolidWorks model of the air track body assembly" style="width: 100%; height: 180px; object-fit: cover;" loading="lazy" />
                 </a>
               </div>
 
@@ -318,11 +272,11 @@
             <div class="card card-custom">
               <div class="bg-light-alt rounded-top-4 d-flex align-items-center justify-content-center" style="height: 180px;">
                 <a href="dynatronics.html" style="width: 100%; height: 100%;">
-                  <img src="/Dynatronics%20D9502.jpg" class="img-fluid rounded-top-4" alt="Athletic Trainer Consultation" style="width: 100%; height: 180px; object-fit: cover;" loading="lazy" />
+                  <img src="images/dynatronics-d9502.jpg" class="img-fluid rounded-top-4" alt="Dynatronics D9502 therapy unit" style="width: 100%; height: 180px; object-fit: cover;" loading="lazy" />
                 </a>
               </div>
               <div class="card-body text-center">
-                <div class="date-text mb-2">Project Category</div>
+                <div class="date-text mb-2">Consultation Project</div>
                 <h3 class="subtitle">Dynatronics D9502 Consultation</h3>
                 <p class="mb-0">
                   A private consultation for the Colorado Mesa University Athletic Training Department regarding a broken medical device.
@@ -336,14 +290,14 @@
             <div class="card card-custom">
               <div class="bg-light-alt rounded-top-4 d-flex align-items-center justify-content-center" style="height: 180px;">
                 <a href="Parkinsons.html" style="width: 100%; height: 100%;">
-                  <img src="/cueing%20photo.png" class="img-fluid rounded-top-4" alt="Parkinsons Belt Project" style="width: 100%; height: 180px; object-fit: cover;" loading="lazy" />
+                  <img src="images/parkinsons-cueing.jpg" class="img-fluid rounded-top-4" alt="Parkinson's walking assist belt visual cueing prototype" style="width: 100%; height: 180px; object-fit: cover;" loading="lazy" />
                 </a>
               </div>
               <div class="card-body text-center">
-                <div class="date-text mb-2">Project Category</div>
-                <h3 class="subtitle">Parkinsons Walking Assist Belt</h3>
+                <div class="date-text mb-2">Medical Prototyping</div>
+                <h3 class="subtitle">Parkinson's Walking Assist Belt</h3>
                 <p class="mb-0">
-                  A prototype belt designed to assist Parkinson's patients in walking more fluidly using visual cueing.
+                  A prototype belt designed to help people with Parkinson's in walking more fluidly using visual cueing.
                 </p>
                 <a href="Parkinsons.html" class="btn btn-sm btn-outline-warning mt-3 rounded-pill">View Details</a>
               </div>
@@ -364,11 +318,6 @@
 <section id="solidworks" class="py-5 my-5 bg-light-alt rounded-5 m-4" data-aos="clip-bottom">
     <div class="container">
       
-      <style>
-        .zoom-card { cursor: pointer; transition: transform 0.2s ease; }
-        .zoom-card:hover { transform: scale(1.02); }
-      </style>
-
       <div class="row justify-content-center mb-5">
         <div class="col-lg-8 text-center" data-aos="fade-up">
           <h2 class="content-title fw-bold mb-3">SolidWorks & Technical Drawings</h2>
@@ -378,11 +327,11 @@
       <div class="row g-4">
         
         <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="card border-0 shadow-sm h-100 rounded-4 overflow-hidden zoom-card" data-bs-toggle="modal" data-bs-target="#modalSW1">
+          <div class="card border-0 shadow-sm h-100 rounded-4 overflow-hidden zoom-card" data-bs-toggle="modal" data-bs-target="#modalSW1" role="button" tabindex="0" aria-label="Enlarge Air Track End Cap">
             <div style="height: 300px; overflow: hidden;">
-              <img src="air%20track%20end%20cap.jpg" 
+              <img src="images/air-track-end-cap.jpg" 
                    class="card-img-top w-100 h-100" 
-                   alt="Air Track End Cap"
+                   alt="SolidWorks render of the air track end cap"
                    style="object-fit: cover; object-position: center;">
             </div>
             <div class="card-body bg-white p-4">
@@ -393,11 +342,11 @@
         </div>
 
         <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
-          <div class="card border-0 shadow-sm h-100 rounded-4 overflow-hidden zoom-card" data-bs-toggle="modal" data-bs-target="#modalSW2">
+          <div class="card border-0 shadow-sm h-100 rounded-4 overflow-hidden zoom-card" data-bs-toggle="modal" data-bs-target="#modalSW2" role="button" tabindex="0" aria-label="Enlarge Mechanical Rack Assembly">
             <div style="height: 300px; overflow: hidden;">
-              <img src="Rack%20Image.jpg" 
+              <img src="images/rack.jpg" 
                    class="card-img-top w-100 h-100" 
-                   alt="Rack Assembly"
+                   alt="SolidWorks rack assembly"
                    style="object-fit: cover; object-position: center;">
             </div>
             <div class="card-body bg-white p-4">
@@ -408,11 +357,11 @@
         </div>
 
         <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
-          <div class="card border-0 shadow-sm h-100 rounded-4 overflow-hidden zoom-card" data-bs-toggle="modal" data-bs-target="#modalSW3">
+          <div class="card border-0 shadow-sm h-100 rounded-4 overflow-hidden zoom-card" data-bs-toggle="modal" data-bs-target="#modalSW3" role="button" tabindex="0" aria-label="Enlarge Angle Bracket &amp; Cup Holder drawing">
             <div style="height: 300px; overflow: hidden;">
-              <img src="angle%20bracket%20raft%20cup%20holder%20drawing.jpg" 
+              <img src="images/angle-bracket-cup-holder-drawing.jpg" 
                    class="card-img-top w-100 h-100" 
-                   alt="Angle Bracket Drawing"
+                   alt="Technical drawing of the angle bracket and raft cup holder"
                    style="object-fit: cover; object-position: top;">
             </div>
             <div class="card-body bg-white p-4">
@@ -423,11 +372,11 @@
         </div>
 
         <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
-          <div class="card border-0 shadow-sm h-100 rounded-4 overflow-hidden zoom-card" data-bs-toggle="modal" data-bs-target="#modalSW4">
+          <div class="card border-0 shadow-sm h-100 rounded-4 overflow-hidden zoom-card" data-bs-toggle="modal" data-bs-target="#modalSW4" role="button" tabindex="0" aria-label="Enlarge Sheet Metal Fabrication drawing">
             <div style="height: 300px; overflow: hidden;">
-              <img src="sheet%20metal%20drawing.jpg" 
+              <img src="images/sheet-metal-drawing.jpg" 
                    class="card-img-top w-100 h-100" 
-                   alt="Sheet Metal Drawing"
+                   alt="Sheet metal part drawing with flat pattern and bend table"
                    style="object-fit: cover; object-position: top;">
             </div>
             <div class="card-body bg-white p-4">
@@ -519,7 +468,7 @@
             <a href="https://linkedin.com/in/andrewdelavara" aria-label="LinkedIn" target="_blank" rel="noopener">
               <i class="fab fa-linkedin social-icon text-light-custom"></i>
             </a>
-            <a href="#" aria-label="GitHub">
+            <a href="https://github.com/ande3836" aria-label="GitHub" target="_blank" rel="noopener">
               <i class="fab fa-github social-icon text-light-custom"></i>
             </a>
           </div>
@@ -552,7 +501,7 @@
 
       <div class="border-top border-light pt-4">
         <p class="text-light-custom text-center mb-0">
-          ©2025 Andrew De La Vara.
+          © 2026 Andrew De La Vara
         </p>
       </div>
     </div>
@@ -579,7 +528,14 @@
         });
       }
 
-      // 3. Initialize Project Slider
+      // 3. Let keyboard users open the SolidWorks gallery cards
+      document.querySelectorAll('.zoom-card[role="button"]').forEach(function (card) {
+        card.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
+        });
+      });
+
+      // 4. Initialize Project Slider
       if (document.querySelector(".worksSwiper")) {
         new Swiper(".worksSwiper", {
           slidesPerView: 1,
@@ -595,82 +551,57 @@
     });
   </script>
 
-  <style>
-    /* Ensures the button stays on top and is clickable */
-    .floating-close-btn {
-      position: absolute;
-      top: 30px;
-      right: 30px;
-      z-index: 1055; /* Bootstrap modals use 1050, this puts button above them */
-      opacity: 0.9;
-      cursor: pointer;
-      pointer-events: auto; /* Forces clickability */
-    }
-    .floating-close-btn:hover {
-      opacity: 1;
-      transform: scale(1.05);
-      transition: all 0.2s;
-    }
-  </style>
 
-  <div class="modal fade" id="modalSW1" tabindex="-1" aria-hidden="true">
+  <div class="modal fade" id="modalSW1" tabindex="-1" aria-hidden="true" aria-label="Enlarged image">
     <div class="modal-dialog modal-fullscreen">
       <div class="modal-content bg-black position-relative">
         <button type="button" class="btn btn-light rounded-pill shadow floating-close-btn px-4 fw-bold" data-bs-dismiss="modal">
           <i class="fas fa-compress-alt me-2"></i>Minimize
         </button>
         <div class="modal-body d-flex align-items-center justify-content-center p-0 w-100 h-100">
-          <img src="air%20track%20end%20cap.jpg" class="img-fluid" style="max-height: 100vh; max-width: 100%; object-fit: contain;" alt="Full View">
+          <img src="images/air-track-end-cap.jpg" class="img-fluid" style="max-height: 100vh; max-width: 100%; object-fit: contain;" alt="Air track end cap, full size" loading="lazy">
         </div>
       </div>
     </div>
   </div>
 
-  <div class="modal fade" id="modalSW2" tabindex="-1" aria-hidden="true">
+  <div class="modal fade" id="modalSW2" tabindex="-1" aria-hidden="true" aria-label="Enlarged image">
     <div class="modal-dialog modal-fullscreen">
       <div class="modal-content bg-black position-relative">
         <button type="button" class="btn btn-light rounded-pill shadow floating-close-btn px-4 fw-bold" data-bs-dismiss="modal">
            <i class="fas fa-compress-alt me-2"></i>Minimize
         </button>
         <div class="modal-body d-flex align-items-center justify-content-center p-0 w-100 h-100">
-          <img src="Rack%20Image.jpg" class="img-fluid" style="max-height: 100vh; max-width: 100%; object-fit: contain;" alt="Full View">
+          <img src="images/rack.jpg" class="img-fluid" style="max-height: 100vh; max-width: 100%; object-fit: contain;" alt="Rack assembly, full size" loading="lazy">
         </div>
       </div>
     </div>
   </div>
 
-  <div class="modal fade" id="modalSW3" tabindex="-1" aria-hidden="true">
+  <div class="modal fade" id="modalSW3" tabindex="-1" aria-hidden="true" aria-label="Enlarged image">
     <div class="modal-dialog modal-fullscreen">
       <div class="modal-content bg-black position-relative">
         <button type="button" class="btn btn-light rounded-pill shadow floating-close-btn px-4 fw-bold" data-bs-dismiss="modal">
            <i class="fas fa-compress-alt me-2"></i>Minimize
         </button>
         <div class="modal-body d-flex align-items-center justify-content-center p-0 w-100 h-100">
-          <img src="angle%20bracket%20raft%20cup%20holder%20drawing.jpg" class="img-fluid" style="max-height: 100vh; max-width: 100%; object-fit: contain;" alt="Full View">
+          <img src="images/angle-bracket-cup-holder-drawing.jpg" class="img-fluid" style="max-height: 100vh; max-width: 100%; object-fit: contain;" alt="Angle bracket and cup holder drawing, full size" loading="lazy">
         </div>
       </div>
     </div>
   </div>
 
-  <div class="modal fade" id="modalSW4" tabindex="-1" aria-hidden="true">
+  <div class="modal fade" id="modalSW4" tabindex="-1" aria-hidden="true" aria-label="Enlarged image">
     <div class="modal-dialog modal-fullscreen">
       <div class="modal-content bg-black position-relative">
         <button type="button" class="btn btn-light rounded-pill shadow floating-close-btn px-4 fw-bold" data-bs-dismiss="modal">
            <i class="fas fa-compress-alt me-2"></i>Minimize
         </button>
         <div class="modal-body d-flex align-items-center justify-content-center p-0 w-100 h-100">
-          <img src="sheet%20metal%20drawing.jpg" class="img-fluid" style="max-height: 100vh; max-width: 100%; object-fit: contain;" alt="Full View">
+          <img src="images/sheet-metal-drawing.jpg" class="img-fluid" style="max-height: 100vh; max-width: 100%; object-fit: contain;" alt="Sheet metal drawing, full size" loading="lazy">
         </div>
       </div>
     </div>
   </div>
 </body>
 </html>
-
-
-
-
-
-
-
-
