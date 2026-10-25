@@ -18,7 +18,6 @@ Personal portfolio for Andrew De La Vara (mechanical engineering, CU Boulder, Ma
 - Rows directly inside `.container` use `g-4 g-lg-5`, never bare `g-5`, which causes sideways scrolling on phones.
 - AOS reveal states in `style.css` are scoped to `.aos-init` so content still shows if the CDN fails. Keep it that way for new animations.
 - `resume.pdf` is the resume linked from the site. Replace that file to update it rather than adding a second copy.
-- The Dynatronics report section in `dynatronics.html` is commented out until the report PDF is added (`assets/docs/dynatronics-report.pdf`, or update the path).
 - Copy is Andrew's. Don't invent dates, results, or numbers. Ask.
 
 ## Claude Code setup in this repo

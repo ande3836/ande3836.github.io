@@ -5,7 +5,8 @@ points at something that exists.
 Usage
   python3 .claude/hooks/check_links.py            # check every *.html page
   python3 .claude/hooks/check_links.py page.html  # check specific pages
-  (as a Claude Code PostToolUse hook it reads the edited file from stdin JSON)
+  python3 .claude/hooks/check_links.py --hook     # Claude Code PostToolUse hook:
+                                                  # reads the tool call JSON from stdin
 
 Exit codes: 0 = all good / nothing to check, 2 = broken references found
 (exit 2 makes Claude Code show the message to Claude so it fixes them).
@@ -87,8 +88,6 @@ def check_page(path, id_cache):
 
 def pages_from_hook_stdin():
     """When run as a hook, Claude Code sends JSON describing the tool call."""
-    if sys.stdin.isatty():
-        return None
     raw = sys.stdin.read().strip()
     if not raw:
         return None
@@ -114,12 +113,14 @@ def all_pages():
 
 def main():
     args = sys.argv[1:]
-    if args:
-        pages = [os.path.abspath(a) for a in args]
-    else:
+    if args == ["--hook"]:
         pages = pages_from_hook_stdin()
         if pages is None:
             pages = all_pages()
+    elif args:
+        pages = [os.path.abspath(a) for a in args]
+    else:
+        pages = all_pages()
     if not pages:
         return 0
     id_cache, problems = {}, []
@@ -128,7 +129,7 @@ def main():
     if problems:
         print("Broken references found:\n  " + "\n  ".join(problems), file=sys.stderr)
         return 2
-    if sys.stdout.isatty() or args:
+    if args != ["--hook"]:
         print(f"Links OK across {len(pages)} page(s).")
     return 0
 
